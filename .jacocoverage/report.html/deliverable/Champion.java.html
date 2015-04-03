@@ -34,58 +34,72 @@ public class Champion {
 <span class="fc" id="L34">        Range = -1;</span>
 <span class="fc" id="L35">    }</span>
 
-<span class="fc" id="L37">    public Champion(String name, double HP, double HG, double AD, double ADL, double AS, double ASL, double AR, double ARL, double MR, double MRL, int MS, int Range) {</span>
-<span class="fc" id="L38">        this.name = name;</span>
-<span class="fc" id="L39">        this.HP = HP;</span>
-<span class="fc" id="L40">        this.HG = HG;</span>
-<span class="fc" id="L41">        this.AD = AD;</span>
-<span class="fc" id="L42">        this.ADL = ADL;</span>
-<span class="fc" id="L43">        this.AS = AS;</span>
-<span class="fc" id="L44">        this.ASL = ASL;</span>
-<span class="fc" id="L45">        this.AR = AR;</span>
-<span class="fc" id="L46">        this.ARL = ARL;</span>
-<span class="fc" id="L47">        this.MR = MR;</span>
-<span class="fc" id="L48">        this.MRL = MRL;</span>
-<span class="fc" id="L49">        this.MS = MS;</span>
-<span class="fc" id="L50">        this.Range = Range;</span>
-<span class="fc" id="L51">    }</span>
+    //sets the stats otherwise
+<span class="fc" id="L38">    public Champion(String name, double HP, double HG, double AD, double ADL, double AS, double ASL, double AR, double ARL, double MR, double MRL, int MS, int Range) {</span>
+<span class="fc" id="L39">        this.name = name;</span>
+<span class="fc" id="L40">        this.HP = HP;</span>
+<span class="fc" id="L41">        this.HG = HG;</span>
+<span class="fc" id="L42">        this.AD = AD;</span>
+<span class="fc" id="L43">        this.ADL = ADL;</span>
+<span class="fc" id="L44">        this.AS = AS;</span>
+<span class="fc" id="L45">        this.ASL = ASL;</span>
+<span class="fc" id="L46">        this.AR = AR;</span>
+<span class="fc" id="L47">        this.ARL = ARL;</span>
+<span class="fc" id="L48">        this.MR = MR;</span>
+<span class="fc" id="L49">        this.MRL = MRL;</span>
+<span class="fc" id="L50">        this.MS = MS;</span>
+<span class="fc" id="L51">        this.Range = Range;</span>
+<span class="fc" id="L52">    }</span>
 
+    //returns an array of the stats
     public String[] getStats() {
-<span class="fc" id="L54">        String returnArray[] = {name, getString(HP), getString(HG), getString(AD),</span>
+<span class="fc" id="L56">        String returnArray[] = {name, getString(HP), getString(HG), getString(AD),</span>
             getString(ADL), getString(AS), getString(ASL), getString(AR), getString(ARL),
             getString(MR), getString(MRL), getString(MS), getString(Range)};
 
-<span class="fc" id="L58">        return returnArray;</span>
+<span class="fc" id="L60">        return returnArray;</span>
     }
 
+    //simple method to get a string from a double
     private String getString(double d) {
-<span class="fc" id="L62">        return d + &quot;&quot;;</span>
+<span class="fc" id="L65">        return d + &quot;&quot;;</span>
     }
 
+    //simple method to get a string from an int
     private String getString(int i) {
-<span class="fc" id="L66">        return i + &quot;&quot;;</span>
+<span class="fc" id="L70">        return i + &quot;&quot;;</span>
     }
     
+    //returns the file location of the champion's picture
     public String picLocation(){
-<span class="fc" id="L70">        String temp = System.getProperty(&quot;user.dir&quot;) + File.separatorChar + &quot;bin&quot; + File.separatorChar + name + &quot;Square.png&quot;;</span>
-<span class="fc" id="L71">        return temp;</span>
+<span class="fc" id="L75">        String temp = System.getProperty(&quot;user.dir&quot;) + File.separatorChar + &quot;bin&quot; + File.separatorChar + name + &quot;Square.png&quot;;</span>
+<span class="fc" id="L76">        return temp;</span>
     }
     
+    //returns the name of the champion
     public String getName(){
-<span class="fc" id="L75">        return name;</span>
+<span class="fc" id="L81">        return name;</span>
     }
     
+    //returns the ad for the given level of a champion
+    //base ad + (ad per level * the level)
+    //level - 1 because base stats are at level one so the amount above that
+    //is one below the level
     public int getAD(int lvl){
-<span class="fc" id="L79">    	String effectiveAD = (Math.round(AD + (ADL*(lvl-1))) + &quot;&quot;);</span>
-<span class="fc" id="L80">    	return Integer.parseInt(effectiveAD);</span>
+<span class="fc" id="L89">    	String effectiveAD = (Math.round(AD + (ADL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L90">    	return Integer.parseInt(effectiveAD);</span>
     }
+    
+    //same as the getAD method, but for AR
     public int getAR(int lvl){
-<span class="fc" id="L83">    	String effectiveAR = (Math.round(AR + (ARL*(lvl-1))) + &quot;&quot;);</span>
-<span class="fc" id="L84">    	return Integer.parseInt(effectiveAR);</span>
+<span class="fc" id="L95">    	String effectiveAR = (Math.round(AR + (ARL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L96">    	return Integer.parseInt(effectiveAR);</span>
     }
+    
+    //same as the two preceding methods, but for MR
     public int getMR(int lvl){
-<span class="fc" id="L87">    	String effectiveMR = (Math.round(MR + (MRL*(lvl-1))) + &quot;&quot;);</span>
-<span class="fc" id="L88">    	return Integer.parseInt(effectiveMR);</span>
+<span class="fc" id="L101">    	String effectiveMR = (Math.round(MR + (MRL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L102">    	return Integer.parseInt(effectiveMR);</span>
     }
 
 }

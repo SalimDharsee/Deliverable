@@ -25,9 +25,9 @@ import javax.swing.JTextField;
 
 public class InitialFrame {
 
-	// This class contains majority of the code that is used when viewing the GUI and branches off to other classes when
+    // This class contains majority of the code that is used when viewing the GUI and branches off to other classes when
     // we need to get the logic computed 
-	// All of the global variables that are used in the main functionality of our GUI
+    // All of the global variables that are used in the main functionality of our GUI
     private JFrame frame;
     private JTextField txtDamage;
     private JTextField searchTXT;
@@ -83,13 +83,13 @@ public class InitialFrame {
 <span class="fc" id="L83">    private SearchChampion aChampion = new SearchChampion();</span>
 <span class="fc" id="L84">    private SearchItem aItem = new SearchItem();</span>
 
-	// The main function that in turn runs all of the code
+    // The main function that in turn runs all of the code
     public static void main(String[] args) {
 <span class="nc" id="L88">        EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
                 try {
 
-					// Setting the frame visible to the user
+                    // Setting the frame visible to the user
 <span class="nc" id="L93">                    InitialFrame window = new InitialFrame();</span>
 <span class="nc" id="L94">                    window.frame.setVisible(true);</span>
 <span class="nc" id="L95">                } catch (Exception e) {</span>
@@ -104,7 +104,7 @@ public class InitialFrame {
 <span class="fc" id="L104">        initialize();</span>
 <span class="fc" id="L105">    }</span>
 
-	// This method contains all of the panels and there buttons, fields and labels 
+    // This method contains all of the panels and there buttons, fields and labels 
     private void initialize() {
 
         // Creating an instance of JFrame 
@@ -127,7 +127,7 @@ public class InitialFrame {
 <span class="fc" id="L127">        Image img = new ImageIcon(folder + separator + &quot;bin&quot; + separator + &quot;banner.png&quot;).getImage();</span>
 <span class="fc" id="L128">        Image backimg = new ImageIcon(folder + separator + &quot;bin&quot; + separator + &quot;back.png&quot;).getImage();</span>
 
-		// Setting up the panel for the item compare, champion compare, and damage calculator
+        // Setting up the panel for the item compare, champion compare, and damage calculator
 <span class="fc" id="L131">        final JPanel itemPanel = new JPanel();</span>
 <span class="fc" id="L132">        itemPanel.setBackground(Color.WHITE);</span>
 <span class="fc" id="L133">        itemPanel.setBounds(0, 0, 1184, 661);</span>
@@ -151,20 +151,20 @@ public class InitialFrame {
 <span class="fc" id="L151">        InitialPanel.setVisible(true);</span>
 <span class="fc" id="L152">        itemPanel.setVisible(false);</span>
 
-		// The following code is now the code for the item panel
+        // The following code is now the code for the item panel
         // This is a button when clicked returns us to the inital panel from the item panel 
 <span class="fc" id="L156">        JButton itemPanelBACKButton = new JButton(&quot;&quot;);</span>
 <span class="fc" id="L157">        itemPanelBACKButton.addMouseListener(new MouseAdapter() {</span>
             @Override
             public void mouseClicked(MouseEvent e) {
 
-				// Swapping visiblities 
+                // Swapping visiblities 
 <span class="nc" id="L162">                InitialPanel.setVisible(true);</span>
 <span class="nc" id="L163">                itemPanel.setVisible(false);</span>
 <span class="nc" id="L164">            }</span>
         });
 
-		// Setting the layout and the parameters for the back button
+        // Setting the layout and the parameters for the back button
 <span class="fc" id="L168">        itemPanel.setLayout(null);</span>
 <span class="fc" id="L169">        itemPanelBACKButton.setBounds(0, 0, 237, 85);</span>
 <span class="fc" id="L170">        itemPanelBACKButton.setIcon(new ImageIcon(backimg));</span>
@@ -179,7 +179,7 @@ public class InitialFrame {
 <span class="nc" id="L179">            }</span>
         });
 
-		// Setting up the color for the buttons 
+        // Setting up the color for the buttons 
 <span class="fc" id="L183">        itemPanelITEMButton.setBackground(Color.WHITE);</span>
 <span class="fc" id="L184">        itemPanelITEMButton.setForeground(Color.WHITE);</span>
 <span class="fc" id="L185">        itemPanelITEMButton.setBounds(0, 100, 80, 95);</span>
@@ -199,13 +199,13 @@ public class InitialFrame {
 <span class="nc" id="L199">            }</span>
         });
 
-		// Finalizing the parameters for the champion panel button
+        // Finalizing the parameters for the champion panel button
 <span class="fc" id="L203">        itemPanelCHAMPButton.setBackground(Color.WHITE);</span>
 <span class="fc" id="L204">        itemPanelCHAMPButton.setBounds(0, 250, 80, 95);</span>
 <span class="fc" id="L205">        itemPanelCHAMPButton.setIcon(new ImageIcon(champImg));</span>
 <span class="fc" id="L206">        itemPanel.add(itemPanelCHAMPButton);</span>
 
-		// Button that is used to switch from the item panel to the damage panel 
+        // Button that is used to switch from the item panel to the damage panel 
 <span class="fc" id="L209">        JButton itemPanelDAMAGEButton = new JButton(&quot;&quot;);</span>
 <span class="fc" id="L210">        itemPanelDAMAGEButton.addMouseListener(new MouseAdapter() {</span>
 
@@ -216,13 +216,13 @@ public class InitialFrame {
 <span class="nc" id="L216">            }</span>
         });
 
-		// Finalizing the parameters of the damage button
+        // Finalizing the parameters of the damage button
 <span class="fc" id="L220">        itemPanelDAMAGEButton.setBackground(Color.WHITE);</span>
 <span class="fc" id="L221">        itemPanelDAMAGEButton.setBounds(0, 400, 80, 95);</span>
 <span class="fc" id="L222">        itemPanelDAMAGEButton.setIcon(new ImageIcon(damageImg));</span>
 <span class="fc" id="L223">        itemPanel.add(itemPanelDAMAGEButton);</span>
 
-		// The text field that is used to receive input from the user through the gui
+        // The text field that is used to receive input from the user through the gui
         // This input is the name of the item they wish to view 
 <span class="fc" id="L227">        txtItemSearch = new JTextField();</span>
 <span class="fc" id="L228">        txtItemSearch.setBounds(300, 115, 230, 40);</span>
@@ -233,7 +233,7 @@ public class InitialFrame {
 <span class="fc" id="L233">        lblItemName.setBounds(700, 115, 180, 40);</span>
 <span class="fc" id="L234">        itemPanel.add(lblItemName);</span>
 
-		// This is the search button, when clicked it calls Champion to rigoursly look through the CSV of champions 
+        // This is the search button, when clicked it calls Champion to rigoursly look through the CSV of champions 
 <span class="fc" id="L237">        JButton searchButton = new JButton(&quot;Search&quot;);</span>
 <span class="fc" id="L238">        searchButton.addMouseListener(new MouseAdapter() {</span>
 <span class="fc" id="L239">            JLabel picLabel = new JLabel(&quot;&quot;);</span>
@@ -243,11 +243,11 @@ public class InitialFrame {
 <span class="nc" id="L243">                String checkText = txtItemSearch.getText();</span>
 <span class="nc" id="L244">                txtItemSearch.setText(&quot;&quot;);</span>
 <span class="nc" id="L245">                Item item = aItem.getItem(checkText);</span>
-				// A check to see if the item returns a null from champion to stop any pointer errors 
+                // A check to see if the item returns a null from champion to stop any pointer errors 
 
 <span class="nc bnc" id="L248" title="All 2 branches missed.">                if (!(item == null)) {</span>
 
-					// Else they set the lblItemName to the found item name and display the stats on the GUI
+                    // Else they set the lblItemName to the found item name and display the stats on the GUI
 <span class="nc" id="L251">                    lblItemName.setText(item.getName());</span>
 <span class="nc" id="L252">                    picLabel.setBounds(1000, 115, 64, 64);</span>
 <span class="nc" id="L253">                    picLabel.setIcon(new ImageIcon(item.picLocation()));</span>
@@ -280,7 +280,7 @@ public class InitialFrame {
 <span class="fc" id="L280">        JLabel itemMS = new JLabel();</span>
 <span class="fc" id="L281">        JLabel itemP = new JLabel();</span>
 
-		// Just setting up the parameters for the labels defined above 
+        // Just setting up the parameters for the labels defined above 
 <span class="fc" id="L284">        itemHL.setText(&quot;Health Gain&quot;);</span>
 <span class="fc" id="L285">        itemHL.setBounds(289, 365, 87, 20);</span>
 
@@ -299,7 +299,7 @@ public class InitialFrame {
 <span class="fc" id="L299">        itemMS.setText(&quot;Speed&quot;);</span>
 <span class="fc" id="L300">        itemMS.setBounds(1039, 365, 87, 20);</span>
 
-		// Adding said labels to the item panel
+        // Adding said labels to the item panel
 <span class="fc" id="L303">        itemPanel.add(itemHL);</span>
 <span class="fc" id="L304">        itemPanel.add(itemAD);</span>
 <span class="fc" id="L305">        itemPanel.add(itemAS);</span>
@@ -308,7 +308,7 @@ public class InitialFrame {
 <span class="fc" id="L308">        itemPanel.add(itemMS);</span>
 <span class="fc" id="L309">        itemPanel.add(itemP);</span>
 
-		// Creating new text fields for the user to view, basically shows what stats go where 
+        // Creating new text fields for the user to view, basically shows what stats go where 
 <span class="fc" id="L312">        txHL = new JTextField();</span>
 
 <span class="fc" id="L314">        txHL.setBounds(289, 382, 87, 20);</span>
@@ -340,673 +340,679 @@ public class InitialFrame {
 <span class="fc" id="L340">        itemPanel.add(txSpeed);</span>
 <span class="fc" id="L341">        txSpeed.setColumns(10);</span>
 
-		// The button that is used when the user wants to compare the current item to that of another
+        // The button that is used when the user wants to compare the current item to that of another
 <span class="fc" id="L344">        JButton compareButton = new JButton(&quot;Compare&quot;);</span>
 <span class="fc" id="L345">        compareButton.addMouseListener(new MouseAdapter() {</span>
 
-			// Calls the ItemCompare class to calculate the logic for a given item
+            // Calls the ItemCompare class to calculate the logic for a given item
             public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L349">                ItemCompare aCompare = new ItemCompare(aItem.getItem(lblItemName.getText()));</span>
-<span class="nc" id="L350">                aCompare.setVisible(true);</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">                if (!(aItem.getItem(lblItemName.getText()) == null)) {</span>
+<span class="nc" id="L350">                    ItemCompare aCompare = new ItemCompare(aItem.getItem(lblItemName.getText()));</span>
+<span class="nc" id="L351">                    aCompare.setVisible(true);</span>
+                }
                 // Setting the visibility of the frame to be true
 
-<span class="nc" id="L353">            }</span>
+<span class="nc" id="L355">            }</span>
         });
 
-<span class="fc" id="L356">        compareButton.setBounds(700, 256, 117, 33);</span>
-<span class="fc" id="L357">        itemPanel.add(compareButton);</span>
+<span class="fc" id="L358">        compareButton.setBounds(700, 256, 117, 33);</span>
+<span class="fc" id="L359">        itemPanel.add(compareButton);</span>
 
-		// Now we are entering the code that is used for the champion panel 
+        // Now we are entering the code that is used for the champion panel 
         // This button would take us back to the initial panel from damage panel
-<span class="fc" id="L361">        JButton champPanelBACKButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L362">        champPanelBACKButton.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L363">        JButton champPanelBACKButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L364">        champPanelBACKButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L365">                InitialPanel.setVisible(true);</span>
-<span class="nc" id="L366">                champPanel.setVisible(false);</span>
+<span class="nc" id="L367">                InitialPanel.setVisible(true);</span>
+<span class="nc" id="L368">                champPanel.setVisible(false);</span>
                 // Swapping visibilities 
-<span class="nc" id="L368">            }</span>
+<span class="nc" id="L370">            }</span>
         });
 
-<span class="fc" id="L371">        champPanelBACKButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L372">        champPanelBACKButton.setBounds(0, 0, 237, 85);</span>
+<span class="fc" id="L373">        champPanelBACKButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L374">        champPanelBACKButton.setBounds(0, 0, 237, 85);</span>
 
         // Setting the back buttons image 
-<span class="fc" id="L375">        champPanel.setLayout(null);</span>
-<span class="fc" id="L376">        champPanelBACKButton.setIcon(new ImageIcon(backimg));</span>
-<span class="fc" id="L377">        champPanel.add(champPanelBACKButton);</span>
+<span class="fc" id="L377">        champPanel.setLayout(null);</span>
+<span class="fc" id="L378">        champPanelBACKButton.setIcon(new ImageIcon(backimg));</span>
+<span class="fc" id="L379">        champPanel.add(champPanelBACKButton);</span>
 
         // This button is just to refresh the champion panel page
-<span class="fc" id="L380">        JButton champPanelCHAMPButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L381">        champPanelCHAMPButton.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L382">        JButton champPanelCHAMPButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L383">        champPanelCHAMPButton.addMouseListener(new MouseAdapter() {</span>
             @Override
             public void mouseClicked(MouseEvent e) {
 
-<span class="nc" id="L385">                champPanel.setVisible(true);</span>
+<span class="nc" id="L387">                champPanel.setVisible(true);</span>
 
-<span class="nc" id="L387">            }</span>
+<span class="nc" id="L389">            }</span>
         });
 
-<span class="fc" id="L390">        champPanelCHAMPButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L391">        champPanelCHAMPButton.setForeground(Color.WHITE);</span>
-<span class="fc" id="L392">        champPanelCHAMPButton.setBounds(0, 250, 80, 95);</span>
-<span class="fc" id="L393">        champPanelCHAMPButton.setIcon(new ImageIcon(champImg));</span>
-<span class="fc" id="L394">        champPanel.add(champPanelCHAMPButton);</span>
+<span class="fc" id="L392">        champPanelCHAMPButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L393">        champPanelCHAMPButton.setForeground(Color.WHITE);</span>
+<span class="fc" id="L394">        champPanelCHAMPButton.setBounds(0, 250, 80, 95);</span>
+<span class="fc" id="L395">        champPanelCHAMPButton.setIcon(new ImageIcon(champImg));</span>
+<span class="fc" id="L396">        champPanel.add(champPanelCHAMPButton);</span>
 
         // This button is used to switch from the champion panel to the item panel
-<span class="fc" id="L397">        JButton champPanelITEMButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L398">        champPanelITEMButton.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L399">        JButton champPanelITEMButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L400">        champPanelITEMButton.addActionListener(new ActionListener() {</span>
             public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L400">                champPanel.setVisible(false);</span>
-<span class="nc" id="L401">                itemPanel.setVisible(true);</span>
+<span class="nc" id="L402">                champPanel.setVisible(false);</span>
+<span class="nc" id="L403">                itemPanel.setVisible(true);</span>
 
-<span class="nc" id="L403">            }</span>
+<span class="nc" id="L405">            }</span>
         });
-<span class="fc" id="L405">        champPanelITEMButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L406">        champPanelITEMButton.setBounds(0, 100, 80, 95);</span>
-<span class="fc" id="L407">        champPanelITEMButton.setIcon(new ImageIcon(itemImg));</span>
-<span class="fc" id="L408">        champPanel.add(champPanelITEMButton);</span>
+<span class="fc" id="L407">        champPanelITEMButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L408">        champPanelITEMButton.setBounds(0, 100, 80, 95);</span>
+<span class="fc" id="L409">        champPanelITEMButton.setIcon(new ImageIcon(itemImg));</span>
+<span class="fc" id="L410">        champPanel.add(champPanelITEMButton);</span>
 
-		// This button is used to switch from the champion panel to the damage panel
-<span class="fc" id="L411">        JButton champPanelDAMAGEButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L412">        champPanelDAMAGEButton.addMouseListener(new MouseAdapter() {</span>
+        // This button is used to switch from the champion panel to the damage panel
+<span class="fc" id="L413">        JButton champPanelDAMAGEButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L414">        champPanelDAMAGEButton.addMouseListener(new MouseAdapter() {</span>
             public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L414">                champPanel.setVisible(false);</span>
-<span class="nc" id="L415">                damagePanel.setVisible(true);</span>
-<span class="nc" id="L416">            }</span>
+<span class="nc" id="L416">                champPanel.setVisible(false);</span>
+<span class="nc" id="L417">                damagePanel.setVisible(true);</span>
+<span class="nc" id="L418">            }</span>
         });
-<span class="fc" id="L418">        champPanelDAMAGEButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L419">        champPanelDAMAGEButton.setBounds(0, 400, 80, 95);</span>
-<span class="fc" id="L420">        champPanelDAMAGEButton.setIcon(new ImageIcon(damageImg));</span>
-<span class="fc" id="L421">        champPanel.add(champPanelDAMAGEButton);</span>
+<span class="fc" id="L420">        champPanelDAMAGEButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L421">        champPanelDAMAGEButton.setBounds(0, 400, 80, 95);</span>
+<span class="fc" id="L422">        champPanelDAMAGEButton.setIcon(new ImageIcon(damageImg));</span>
+<span class="fc" id="L423">        champPanel.add(champPanelDAMAGEButton);</span>
 
         // Creating JLabel instances
-<span class="fc" id="L424">        final JLabel nameLabel = new JLabel(&quot;&quot;);</span>
-<span class="fc" id="L425">        nameLabel.setBounds(700, 115, 180, 40);</span>
-<span class="fc" id="L426">        champPanel.add(nameLabel);</span>
+<span class="fc" id="L426">        final JLabel nameLabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L427">        nameLabel.setBounds(700, 115, 180, 40);</span>
+<span class="fc" id="L428">        champPanel.add(nameLabel);</span>
 
         // The text field that will be used by the user to retrieve the champion they wish to view
-<span class="fc" id="L429">        searchTXT = new JTextField();</span>
-<span class="fc" id="L430">        searchTXT.setBounds(300, 115, 230, 40);</span>
-<span class="fc" id="L431">        champPanel.add(searchTXT);</span>
-<span class="fc" id="L432">        searchTXT.setColumns(10);</span>
+<span class="fc" id="L431">        searchTXT = new JTextField();</span>
+<span class="fc" id="L432">        searchTXT.setBounds(300, 115, 230, 40);</span>
+<span class="fc" id="L433">        champPanel.add(searchTXT);</span>
+<span class="fc" id="L434">        searchTXT.setColumns(10);</span>
 
         // The button that handles the search functionality
-<span class="fc" id="L435">        JButton search = new JButton(&quot;Search&quot;);</span>
-<span class="fc" id="L436">        search.addMouseListener(new MouseAdapter() {</span>
-<span class="fc" id="L437">            JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L437">        JButton search = new JButton(&quot;Search&quot;);</span>
+<span class="fc" id="L438">        search.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L439">            JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
 
             public void mouseClicked(MouseEvent arg0) {
 
-<span class="nc" id="L441">                String checkText = searchTXT.getText();</span>
-<span class="nc" id="L442">                searchTXT.setText(&quot;&quot;);</span>
-<span class="nc" id="L443">                Champion champ = aChampion.getChampion(checkText);</span>
+<span class="nc" id="L443">                String checkText = searchTXT.getText();</span>
+<span class="nc" id="L444">                searchTXT.setText(&quot;&quot;);</span>
+<span class="nc" id="L445">                Champion champ = aChampion.getChampion(checkText);</span>
                 // Checks to make sure that the champions name recieved from Champion is not a null 
-<span class="nc bnc" id="L445" title="All 2 branches missed.">                if (!(champ == null)) {</span>
+<span class="nc bnc" id="L447" title="All 2 branches missed.">                if (!(champ == null)) {</span>
 
-					// if it is not that than we can show the champion name along with its picture and stats
-<span class="nc" id="L448">                    nameLabel.setText(champ.getName());</span>
-<span class="nc" id="L449">                    pictureLabel.setBounds(1000, 115, 174, 275);</span>
-<span class="nc" id="L450">                    pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
-<span class="nc" id="L451">                    champPanel.add(pictureLabel);</span>
+                    // if it is not that than we can show the champion name along with its picture and stats
+<span class="nc" id="L450">                    nameLabel.setText(champ.getName());</span>
+<span class="nc" id="L451">                    pictureLabel.setBounds(1000, 115, 174, 275);</span>
+<span class="nc" id="L452">                    pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
+<span class="nc" id="L453">                    champPanel.add(pictureLabel);</span>
 
                     // Setting the text fields to show the appropriate output 
-<span class="nc" id="L454">                    String[] stats = champ.getStats();</span>
-<span class="nc" id="L455">                    txtHP.setText(stats[1]);</span>
-<span class="nc" id="L456">                    txtHL.setText(stats[2]);</span>
-<span class="nc" id="L457">                    txtAD.setText(stats[3]);</span>
-<span class="nc" id="L458">                    txtADL.setText(stats[4]);</span>
-<span class="nc" id="L459">                    txtAS.setText(stats[5]);</span>
-<span class="nc" id="L460">                    txtASL.setText(stats[6]);</span>
-<span class="nc" id="L461">                    txtAR.setText(stats[7]);</span>
-<span class="nc" id="L462">                    txtARL.setText(stats[8]);</span>
-<span class="nc" id="L463">                    txtMR.setText(stats[9]);</span>
-<span class="nc" id="L464">                    txtMRL.setText(stats[10]);</span>
-<span class="nc" id="L465">                    txtSpeed.setText(stats[11]);</span>
-<span class="nc" id="L466">                    txtRange.setText(stats[12]);</span>
+<span class="nc" id="L456">                    String[] stats = champ.getStats();</span>
+<span class="nc" id="L457">                    txtHP.setText(stats[1]);</span>
+<span class="nc" id="L458">                    txtHL.setText(stats[2]);</span>
+<span class="nc" id="L459">                    txtAD.setText(stats[3]);</span>
+<span class="nc" id="L460">                    txtADL.setText(stats[4]);</span>
+<span class="nc" id="L461">                    txtAS.setText(stats[5]);</span>
+<span class="nc" id="L462">                    txtASL.setText(stats[6]);</span>
+<span class="nc" id="L463">                    txtAR.setText(stats[7]);</span>
+<span class="nc" id="L464">                    txtARL.setText(stats[8]);</span>
+<span class="nc" id="L465">                    txtMR.setText(stats[9]);</span>
+<span class="nc" id="L466">                    txtMRL.setText(stats[10]);</span>
+<span class="nc" id="L467">                    txtSpeed.setText(stats[11]);</span>
+<span class="nc" id="L468">                    txtRange.setText(stats[12]);</span>
                 }
 
                 // refreshes to display the image
-<span class="nc" id="L470">                champPanel.setVisible(false);</span>
-<span class="nc" id="L471">                champPanel.setVisible(true);</span>
-<span class="nc" id="L472">            }</span>
+<span class="nc" id="L472">                champPanel.setVisible(false);</span>
+<span class="nc" id="L473">                champPanel.setVisible(true);</span>
+<span class="nc" id="L474">            }</span>
         });
 
-		// The creating of the labels we use to display the content of the champion
-<span class="fc" id="L476">        search.setBounds(548, 124, 89, 23);</span>
-<span class="fc" id="L477">        champPanel.add(search);</span>
+        // The creating of the labels we use to display the content of the champion
+<span class="fc" id="L478">        search.setBounds(548, 124, 89, 23);</span>
+<span class="fc" id="L479">        champPanel.add(search);</span>
 
-<span class="fc" id="L479">        JLabel labelHP = new JLabel();</span>
-<span class="fc" id="L480">        JLabel labelHL = new JLabel();</span>
-<span class="fc" id="L481">        JLabel labelAD = new JLabel();</span>
-<span class="fc" id="L482">        JLabel labelADL = new JLabel();</span>
-<span class="fc" id="L483">        JLabel labelAS = new JLabel();</span>
-<span class="fc" id="L484">        JLabel labelASL = new JLabel();</span>
-<span class="fc" id="L485">        JLabel labelAR = new JLabel();</span>
-<span class="fc" id="L486">        JLabel labelARL = new JLabel();</span>
-<span class="fc" id="L487">        JLabel labelMR = new JLabel();</span>
-<span class="fc" id="L488">        JLabel labelMRL = new JLabel();</span>
-<span class="fc" id="L489">        JLabel labelMS = new JLabel();</span>
-<span class="fc" id="L490">        JLabel labelRange = new JLabel();</span>
-<span class="fc" id="L491">        JLabel labelP = new JLabel();</span>
-<span class="fc" id="L492">        JLabel labelQ = new JLabel();</span>
-<span class="fc" id="L493">        JLabel labelW = new JLabel();</span>
-<span class="fc" id="L494">        JLabel labelE = new JLabel();</span>
-<span class="fc" id="L495">        JLabel labelR = new JLabel();</span>
+<span class="fc" id="L481">        JLabel labelHP = new JLabel();</span>
+<span class="fc" id="L482">        JLabel labelHL = new JLabel();</span>
+<span class="fc" id="L483">        JLabel labelAD = new JLabel();</span>
+<span class="fc" id="L484">        JLabel labelADL = new JLabel();</span>
+<span class="fc" id="L485">        JLabel labelAS = new JLabel();</span>
+<span class="fc" id="L486">        JLabel labelASL = new JLabel();</span>
+<span class="fc" id="L487">        JLabel labelAR = new JLabel();</span>
+<span class="fc" id="L488">        JLabel labelARL = new JLabel();</span>
+<span class="fc" id="L489">        JLabel labelMR = new JLabel();</span>
+<span class="fc" id="L490">        JLabel labelMRL = new JLabel();</span>
+<span class="fc" id="L491">        JLabel labelMS = new JLabel();</span>
+<span class="fc" id="L492">        JLabel labelRange = new JLabel();</span>
+<span class="fc" id="L493">        JLabel labelP = new JLabel();</span>
+<span class="fc" id="L494">        JLabel labelQ = new JLabel();</span>
+<span class="fc" id="L495">        JLabel labelW = new JLabel();</span>
+<span class="fc" id="L496">        JLabel labelE = new JLabel();</span>
+<span class="fc" id="L497">        JLabel labelR = new JLabel();</span>
 
-		// Setting each labels text
-<span class="fc" id="L498">        labelHP.setText(&quot;Base Health&quot;);</span>
-<span class="fc" id="L499">        labelHP.setBounds(289, 365, 87, 20);</span>
+        // Setting each labels text
+<span class="fc" id="L500">        labelHP.setText(&quot;Base Health&quot;);</span>
+<span class="fc" id="L501">        labelHP.setBounds(289, 365, 87, 20);</span>
 
-<span class="fc" id="L501">        labelHL.setText(&quot;Health Gain&quot;);</span>
-<span class="fc" id="L502">        labelHL.setBounds(289, 419, 87, 20);</span>
+<span class="fc" id="L503">        labelHL.setText(&quot;Health Gain&quot;);</span>
+<span class="fc" id="L504">        labelHL.setBounds(289, 419, 87, 20);</span>
 
-<span class="fc" id="L504">        labelAD.setText(&quot;Attack Damage&quot;);</span>
-<span class="fc" id="L505">        labelAD.setBounds(439, 365, 87, 20);</span>
+<span class="fc" id="L506">        labelAD.setText(&quot;Attack Damage&quot;);</span>
+<span class="fc" id="L507">        labelAD.setBounds(439, 365, 87, 20);</span>
 
-<span class="fc" id="L507">        labelADL.setText(&quot;AD Gain&quot;);</span>
-<span class="fc" id="L508">        labelADL.setBounds(439, 419, 87, 20);</span>
+<span class="fc" id="L509">        labelADL.setText(&quot;AD Gain&quot;);</span>
+<span class="fc" id="L510">        labelADL.setBounds(439, 419, 87, 20);</span>
 
-<span class="fc" id="L510">        labelAS.setText(&quot;Attack Speed&quot;);</span>
-<span class="fc" id="L511">        labelAS.setBounds(589, 365, 87, 20);</span>
+<span class="fc" id="L512">        labelAS.setText(&quot;Attack Speed&quot;);</span>
+<span class="fc" id="L513">        labelAS.setBounds(589, 365, 87, 20);</span>
 
-<span class="fc" id="L513">        labelASL.setText(&quot;AS Gain&quot;);</span>
-<span class="fc" id="L514">        labelASL.setBounds(589, 419, 87, 20);</span>
+<span class="fc" id="L515">        labelASL.setText(&quot;AS Gain&quot;);</span>
+<span class="fc" id="L516">        labelASL.setBounds(589, 419, 87, 20);</span>
 
-<span class="fc" id="L516">        labelAR.setText(&quot;Armor&quot;);</span>
-<span class="fc" id="L517">        labelAR.setBounds(739, 365, 87, 20);</span>
+<span class="fc" id="L518">        labelAR.setText(&quot;Armor&quot;);</span>
+<span class="fc" id="L519">        labelAR.setBounds(739, 365, 87, 20);</span>
 
-<span class="fc" id="L519">        labelARL.setText(&quot;Armor Gain&quot;);</span>
-<span class="fc" id="L520">        labelARL.setBounds(739, 419, 87, 20);</span>
+<span class="fc" id="L521">        labelARL.setText(&quot;Armor Gain&quot;);</span>
+<span class="fc" id="L522">        labelARL.setBounds(739, 419, 87, 20);</span>
 
-<span class="fc" id="L522">        labelMR.setText(&quot;Magic Resist&quot;);</span>
-<span class="fc" id="L523">        labelMR.setBounds(889, 365, 87, 20);</span>
+<span class="fc" id="L524">        labelMR.setText(&quot;Magic Resist&quot;);</span>
+<span class="fc" id="L525">        labelMR.setBounds(889, 365, 87, 20);</span>
 
-<span class="fc" id="L525">        labelMRL.setText(&quot;MR Gain&quot;);</span>
-<span class="fc" id="L526">        labelMRL.setBounds(889, 419, 87, 20);</span>
+<span class="fc" id="L527">        labelMRL.setText(&quot;MR Gain&quot;);</span>
+<span class="fc" id="L528">        labelMRL.setBounds(889, 419, 87, 20);</span>
 
-<span class="fc" id="L528">        labelMS.setText(&quot;Speed&quot;);</span>
-<span class="fc" id="L529">        labelMS.setBounds(1039, 365, 87, 20);</span>
+<span class="fc" id="L530">        labelMS.setText(&quot;Speed&quot;);</span>
+<span class="fc" id="L531">        labelMS.setBounds(1039, 365, 87, 20);</span>
 
-<span class="fc" id="L531">        labelRange.setText(&quot;Attack Range&quot;);</span>
-<span class="fc" id="L532">        labelRange.setBounds(1039, 419, 87, 20);</span>
+<span class="fc" id="L533">        labelRange.setText(&quot;Attack Range&quot;);</span>
+<span class="fc" id="L534">        labelRange.setBounds(1039, 419, 87, 20);</span>
 
         // Attaching said labels to the panel
-<span class="fc" id="L535">        champPanel.add(labelHP);</span>
-<span class="fc" id="L536">        champPanel.add(labelHL);</span>
-<span class="fc" id="L537">        champPanel.add(labelAD);</span>
-<span class="fc" id="L538">        champPanel.add(labelADL);</span>
-<span class="fc" id="L539">        champPanel.add(labelAS);</span>
-<span class="fc" id="L540">        champPanel.add(labelASL);</span>
-<span class="fc" id="L541">        champPanel.add(labelAR);</span>
-<span class="fc" id="L542">        champPanel.add(labelARL);</span>
-<span class="fc" id="L543">        champPanel.add(labelMR);</span>
-<span class="fc" id="L544">        champPanel.add(labelMRL);</span>
-<span class="fc" id="L545">        champPanel.add(labelMS);</span>
-<span class="fc" id="L546">        champPanel.add(labelRange);</span>
+<span class="fc" id="L537">        champPanel.add(labelHP);</span>
+<span class="fc" id="L538">        champPanel.add(labelHL);</span>
+<span class="fc" id="L539">        champPanel.add(labelAD);</span>
+<span class="fc" id="L540">        champPanel.add(labelADL);</span>
+<span class="fc" id="L541">        champPanel.add(labelAS);</span>
+<span class="fc" id="L542">        champPanel.add(labelASL);</span>
+<span class="fc" id="L543">        champPanel.add(labelAR);</span>
+<span class="fc" id="L544">        champPanel.add(labelARL);</span>
+<span class="fc" id="L545">        champPanel.add(labelMR);</span>
+<span class="fc" id="L546">        champPanel.add(labelMRL);</span>
+<span class="fc" id="L547">        champPanel.add(labelMS);</span>
+<span class="fc" id="L548">        champPanel.add(labelRange);</span>
 
-		// the comments between  each field show what stat is being set
-<span class="fc" id="L549">        txtHP = new JTextField();</span>
+        // the comments between  each field show what stat is being set
+<span class="fc" id="L551">        txtHP = new JTextField();</span>
         // txtHP.setText(&quot;Base Health\r\n&quot;);
-<span class="fc" id="L551">        txtHP.setBounds(289, 382, 87, 20);</span>
-<span class="fc" id="L552">        champPanel.add(txtHP);</span>
-<span class="fc" id="L553">        txtHP.setColumns(10);</span>
+<span class="fc" id="L553">        txtHP.setBounds(289, 382, 87, 20);</span>
+<span class="fc" id="L554">        champPanel.add(txtHP);</span>
+<span class="fc" id="L555">        txtHP.setColumns(10);</span>
 
-<span class="fc" id="L555">        txtHL = new JTextField();</span>
+<span class="fc" id="L557">        txtHL = new JTextField();</span>
         // txtHL.setText(&quot;Health Gain&quot;);
-<span class="fc" id="L557">        txtHL.setBounds(289, 436, 87, 20);</span>
-<span class="fc" id="L558">        champPanel.add(txtHL);</span>
-<span class="fc" id="L559">        txtHL.setColumns(10);</span>
+<span class="fc" id="L559">        txtHL.setBounds(289, 436, 87, 20);</span>
+<span class="fc" id="L560">        champPanel.add(txtHL);</span>
+<span class="fc" id="L561">        txtHL.setColumns(10);</span>
 
-<span class="fc" id="L561">        txtAD = new JTextField();</span>
+<span class="fc" id="L563">        txtAD = new JTextField();</span>
         // txtAD.setText(&quot;Attack Damage&quot;);
-<span class="fc" id="L563">        txtAD.setBounds(439, 382, 87, 20);</span>
-<span class="fc" id="L564">        champPanel.add(txtAD);</span>
-<span class="fc" id="L565">        txtAD.setColumns(10);</span>
+<span class="fc" id="L565">        txtAD.setBounds(439, 382, 87, 20);</span>
+<span class="fc" id="L566">        champPanel.add(txtAD);</span>
+<span class="fc" id="L567">        txtAD.setColumns(10);</span>
 
-<span class="fc" id="L567">        txtADL = new JTextField();</span>
+<span class="fc" id="L569">        txtADL = new JTextField();</span>
         // txtADL.setText(&quot;AD Gain&quot;);
-<span class="fc" id="L569">        txtADL.setBounds(439, 436, 87, 20);</span>
-<span class="fc" id="L570">        champPanel.add(txtADL);</span>
-<span class="fc" id="L571">        txtADL.setColumns(10);</span>
+<span class="fc" id="L571">        txtADL.setBounds(439, 436, 87, 20);</span>
+<span class="fc" id="L572">        champPanel.add(txtADL);</span>
+<span class="fc" id="L573">        txtADL.setColumns(10);</span>
 
-<span class="fc" id="L573">        txtASL = new JTextField();</span>
+<span class="fc" id="L575">        txtASL = new JTextField();</span>
         // txtASL.setText(&quot;AS Gain&quot;);
-<span class="fc" id="L575">        txtASL.setBounds(589, 436, 87, 20);</span>
-<span class="fc" id="L576">        champPanel.add(txtASL);</span>
-<span class="fc" id="L577">        txtASL.setColumns(10);</span>
-        
-<span class="fc" id="L579">        txtAS = new JTextField();</span>
+<span class="fc" id="L577">        txtASL.setBounds(589, 436, 87, 20);</span>
+<span class="fc" id="L578">        champPanel.add(txtASL);</span>
+<span class="fc" id="L579">        txtASL.setColumns(10);</span>
+
+<span class="fc" id="L581">        txtAS = new JTextField();</span>
         // txtAS.setText(&quot;Attack Speed\r\n&quot;);
-<span class="fc" id="L581">        txtAS.setBounds(589, 382, 87, 20);</span>
-<span class="fc" id="L582">        champPanel.add(txtAS);</span>
-<span class="fc" id="L583">        txtAS.setColumns(10);</span>
+<span class="fc" id="L583">        txtAS.setBounds(589, 382, 87, 20);</span>
+<span class="fc" id="L584">        champPanel.add(txtAS);</span>
+<span class="fc" id="L585">        txtAS.setColumns(10);</span>
 
-<span class="fc" id="L585">        txtAR = new JTextField();</span>
+<span class="fc" id="L587">        txtAR = new JTextField();</span>
         // txtAR.setText(&quot;Armor\r\n&quot;);
-<span class="fc" id="L587">        txtAR.setBounds(739, 382, 87, 20);</span>
-<span class="fc" id="L588">        champPanel.add(txtAR);</span>
-<span class="fc" id="L589">        txtAR.setColumns(10);</span>
+<span class="fc" id="L589">        txtAR.setBounds(739, 382, 87, 20);</span>
+<span class="fc" id="L590">        champPanel.add(txtAR);</span>
+<span class="fc" id="L591">        txtAR.setColumns(10);</span>
 
-<span class="fc" id="L591">        txtARL = new JTextField();</span>
+<span class="fc" id="L593">        txtARL = new JTextField();</span>
         // txtARL.setText(&quot;Armor Gain&quot;);
-<span class="fc" id="L593">        txtARL.setBounds(739, 436, 87, 20);</span>
-<span class="fc" id="L594">        champPanel.add(txtARL);</span>
-<span class="fc" id="L595">        txtARL.setColumns(10);</span>
-<span class="fc" id="L596">        txtMR = new JTextField();</span>
+<span class="fc" id="L595">        txtARL.setBounds(739, 436, 87, 20);</span>
+<span class="fc" id="L596">        champPanel.add(txtARL);</span>
+<span class="fc" id="L597">        txtARL.setColumns(10);</span>
+<span class="fc" id="L598">        txtMR = new JTextField();</span>
         // txtMR.setText(&quot;Magic Resist&quot;);
-<span class="fc" id="L598">        txtMR.setBounds(889, 382, 87, 20);</span>
-<span class="fc" id="L599">        champPanel.add(txtMR);</span>
-<span class="fc" id="L600">        txtMR.setColumns(10);</span>
+<span class="fc" id="L600">        txtMR.setBounds(889, 382, 87, 20);</span>
+<span class="fc" id="L601">        champPanel.add(txtMR);</span>
+<span class="fc" id="L602">        txtMR.setColumns(10);</span>
 
-<span class="fc" id="L602">        txtSpeed = new JTextField();</span>
+<span class="fc" id="L604">        txtSpeed = new JTextField();</span>
         // txtSpeed.setText(&quot;Speed&quot;);
-<span class="fc" id="L604">        txtSpeed.setBounds(1039, 382, 87, 20);</span>
-<span class="fc" id="L605">        champPanel.add(txtSpeed);</span>
-<span class="fc" id="L606">        txtSpeed.setColumns(10);</span>
+<span class="fc" id="L606">        txtSpeed.setBounds(1039, 382, 87, 20);</span>
+<span class="fc" id="L607">        champPanel.add(txtSpeed);</span>
+<span class="fc" id="L608">        txtSpeed.setColumns(10);</span>
 
-<span class="fc" id="L608">        txtMRL = new JTextField();</span>
+<span class="fc" id="L610">        txtMRL = new JTextField();</span>
         // txtMRL.setText(&quot;MR Gain&quot;);
-<span class="fc" id="L610">        txtMRL.setBounds(889, 436, 87, 20);</span>
-<span class="fc" id="L611">        champPanel.add(txtMRL);</span>
-<span class="fc" id="L612">        txtMRL.setColumns(10);</span>
+<span class="fc" id="L612">        txtMRL.setBounds(889, 436, 87, 20);</span>
+<span class="fc" id="L613">        champPanel.add(txtMRL);</span>
+<span class="fc" id="L614">        txtMRL.setColumns(10);</span>
 
-<span class="fc" id="L614">        txtRange = new JTextField();</span>
+<span class="fc" id="L616">        txtRange = new JTextField();</span>
         // txtRange.setText(&quot;Range&quot;);
-<span class="fc" id="L616">        txtRange.setBounds(1039, 436, 87, 20);</span>
-<span class="fc" id="L617">        champPanel.add(txtRange);</span>
-<span class="fc" id="L618">        txtRange.setColumns(10);</span>
+<span class="fc" id="L618">        txtRange.setBounds(1039, 436, 87, 20);</span>
+<span class="fc" id="L619">        champPanel.add(txtRange);</span>
+<span class="fc" id="L620">        txtRange.setColumns(10);</span>
 
-		// The compare button that will pop open a new frame that can serach for another champion and compare the their stats
-<span class="fc" id="L621">        JButton btnNewButton_1 = new JButton(&quot;Compare&quot;);</span>
-<span class="fc" id="L622">        btnNewButton_1.addMouseListener(new MouseAdapter() {</span>
+        // The compare button that will pop open a new frame that can serach for another champion and compare the their stats
+<span class="fc" id="L623">        JButton btnNewButton_1 = new JButton(&quot;Compare&quot;);</span>
+<span class="fc" id="L624">        btnNewButton_1.addMouseListener(new MouseAdapter() {</span>
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 // Calling the ChampionCompare frame and setting it visible
-<span class="nc" id="L626">                ChampionCompare aCompare = new ChampionCompare(aChampion</span>
-                        .getChampion(nameLabel.getText()));
-<span class="nc" id="L628">                aCompare.setVisible(true);</span>
-<span class="nc" id="L629">            }</span>
+<span class="nc bnc" id="L628" title="All 2 branches missed.">                if (!(aChampion.getChampion(nameLabel.getText()) == null)) {</span>
+<span class="nc" id="L629">                    ChampionCompare aCompare = new ChampionCompare(aChampion.getChampion(nameLabel.getText()));</span>
+<span class="nc" id="L630">                    aCompare.setVisible(true);</span>
+                }
+<span class="nc" id="L632">            }</span>
         });
 
-<span class="fc" id="L632">        btnNewButton_1.setBounds(700, 256, 117, 33);</span>
-<span class="fc" id="L633">        champPanel.add(btnNewButton_1);</span>
+<span class="fc" id="L635">        btnNewButton_1.setBounds(700, 256, 117, 33);</span>
+<span class="fc" id="L636">        champPanel.add(btnNewButton_1);</span>
 
-		// Swapping visibilities
-<span class="fc" id="L636">        InitialPanel.setVisible(true);</span>
+        // Swapping visibilities
+<span class="fc" id="L639">        InitialPanel.setVisible(true);</span>
 
-<span class="fc" id="L638">        damagePanel.setVisible(false);</span>
+<span class="fc" id="L641">        damagePanel.setVisible(false);</span>
 
-<span class="fc" id="L640">        damagePanel.setLayout(null);</span>
+<span class="fc" id="L643">        damagePanel.setLayout(null);</span>
 
         // The back button that will return us to the Initial panel
-<span class="fc" id="L643">        JButton damagePanelBACKButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L644">        damagePanelBACKButton.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L646">        JButton damagePanelBACKButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L647">        damagePanelBACKButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
 
-            	 // Swapping Visibilities 
-<span class="nc" id="L649">                InitialPanel.setVisible(true);</span>
-<span class="nc" id="L650">                damagePanel.setVisible(false);</span>
-<span class="nc" id="L651">            }</span>
+                // Swapping Visibilities 
+<span class="nc" id="L652">                InitialPanel.setVisible(true);</span>
+<span class="nc" id="L653">                damagePanel.setVisible(false);</span>
+<span class="nc" id="L654">            }</span>
         });
 
-<span class="fc" id="L654">        damagePanelBACKButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L655">        damagePanelBACKButton.setBounds(0, 0, 237, 85);</span>
+<span class="fc" id="L657">        damagePanelBACKButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L658">        damagePanelBACKButton.setBounds(0, 0, 237, 85);</span>
 
-<span class="fc" id="L657">        damagePanel.setLayout(null);</span>
-<span class="fc" id="L658">        damagePanelBACKButton.setIcon(new ImageIcon(backimg));</span>
-<span class="fc" id="L659">        damagePanel.add(damagePanelBACKButton);</span>
+<span class="fc" id="L660">        damagePanel.setLayout(null);</span>
+<span class="fc" id="L661">        damagePanelBACKButton.setIcon(new ImageIcon(backimg));</span>
+<span class="fc" id="L662">        damagePanel.add(damagePanelBACKButton);</span>
 
-                 		// This button will switch the panel from the damage to the champion panel
-<span class="fc" id="L662">        JButton damagePanelCHAMPButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L663">        damagePanelCHAMPButton.addMouseListener(new MouseAdapter() {</span>
+        // This button will switch the panel from the damage to the champion panel
+<span class="fc" id="L665">        JButton damagePanelCHAMPButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L666">        damagePanelCHAMPButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
                 // Swapping visibilities 
-<span class="nc" id="L667">                damagePanel.setVisible(false);</span>
-<span class="nc" id="L668">                champPanel.setVisible(true);</span>
+<span class="nc" id="L670">                damagePanel.setVisible(false);</span>
+<span class="nc" id="L671">                champPanel.setVisible(true);</span>
 
-<span class="nc" id="L670">            }</span>
+<span class="nc" id="L673">            }</span>
         });
-<span class="fc" id="L672">        damagePanelCHAMPButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L673">        damagePanelCHAMPButton.setForeground(Color.WHITE);</span>
-<span class="fc" id="L674">        damagePanelCHAMPButton.setBounds(0, 250, 80, 95);</span>
-<span class="fc" id="L675">        damagePanelCHAMPButton.setIcon(new ImageIcon(champImg));</span>
-<span class="fc" id="L676">        damagePanel.add(damagePanelCHAMPButton);</span>
+<span class="fc" id="L675">        damagePanelCHAMPButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L676">        damagePanelCHAMPButton.setForeground(Color.WHITE);</span>
+<span class="fc" id="L677">        damagePanelCHAMPButton.setBounds(0, 250, 80, 95);</span>
+<span class="fc" id="L678">        damagePanelCHAMPButton.setIcon(new ImageIcon(champImg));</span>
+<span class="fc" id="L679">        damagePanel.add(damagePanelCHAMPButton);</span>
 
-                         		 // This button will swap panels from the damage panel to the item panel
-<span class="fc" id="L679">        JButton damagePanelITEMButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L680">        damagePanelITEMButton.addMouseListener(new MouseAdapter() {</span>
+        // This button will swap panels from the damage panel to the item panel
+<span class="fc" id="L682">        JButton damagePanelITEMButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L683">        damagePanelITEMButton.addMouseListener(new MouseAdapter() {</span>
             @Override
             public void mouseClicked(MouseEvent e) {
                 // Swapping panels
-<span class="nc" id="L684">                damagePanel.setVisible(false);</span>
-<span class="nc" id="L685">                itemPanel.setVisible(true);</span>
-<span class="nc" id="L686">            }</span>
+<span class="nc" id="L687">                damagePanel.setVisible(false);</span>
+<span class="nc" id="L688">                itemPanel.setVisible(true);</span>
+<span class="nc" id="L689">            }</span>
         });
-<span class="fc" id="L688">        damagePanelITEMButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L689">        damagePanelITEMButton.setBounds(0, 100, 80, 95);</span>
-<span class="fc" id="L690">        damagePanelITEMButton.setIcon(new ImageIcon(itemImg));</span>
-<span class="fc" id="L691">        damagePanel.add(damagePanelITEMButton);</span>
+<span class="fc" id="L691">        damagePanelITEMButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L692">        damagePanelITEMButton.setBounds(0, 100, 80, 95);</span>
+<span class="fc" id="L693">        damagePanelITEMButton.setIcon(new ImageIcon(itemImg));</span>
+<span class="fc" id="L694">        damagePanel.add(damagePanelITEMButton);</span>
 
-                                 		 // This button will refresh the current damage panel
-<span class="fc" id="L694">        JButton damagePanelDAMAGEButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L695">        damagePanelDAMAGEButton.addMouseListener(new MouseAdapter() {</span>
+        // This button will refresh the current damage panel
+<span class="fc" id="L697">        JButton damagePanelDAMAGEButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L698">        damagePanelDAMAGEButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L698">                damagePanel.setVisible(true);</span>
-<span class="nc" id="L699">            }</span>
+<span class="nc" id="L701">                damagePanel.setVisible(true);</span>
+<span class="nc" id="L702">            }</span>
         });
 
-<span class="fc" id="L702">        damagePanelDAMAGEButton.setBackground(Color.WHITE);</span>
-<span class="fc" id="L703">        damagePanelDAMAGEButton.setBounds(0, 400, 80, 95);</span>
-<span class="fc" id="L704">        damagePanelDAMAGEButton.setIcon(new ImageIcon(damageImg));</span>
-<span class="fc" id="L705">        damagePanel.add(damagePanelDAMAGEButton);</span>
+<span class="fc" id="L705">        damagePanelDAMAGEButton.setBackground(Color.WHITE);</span>
+<span class="fc" id="L706">        damagePanelDAMAGEButton.setBounds(0, 400, 80, 95);</span>
+<span class="fc" id="L707">        damagePanelDAMAGEButton.setIcon(new ImageIcon(damageImg));</span>
+<span class="fc" id="L708">        damagePanel.add(damagePanelDAMAGEButton);</span>
 
-                                         // Setting the TextFields for the first chosen champion and its given items
+        // Setting the TextFields for the first chosen champion and its given items
         // Also attaching said panels to the panels
-<span class="fc" id="L709">        c1item1 = new JTextField();</span>
-<span class="fc" id="L710">        c1item1.setBounds(279, 293, 142, 33);</span>
-<span class="fc" id="L711">        damagePanel.add(c1item1);</span>
-<span class="fc" id="L712">        c1item1.setColumns(10);</span>
+<span class="fc" id="L712">        c1item1 = new JTextField();</span>
+<span class="fc" id="L713">        c1item1.setBounds(279, 293, 142, 33);</span>
+<span class="fc" id="L714">        damagePanel.add(c1item1);</span>
+<span class="fc" id="L715">        c1item1.setColumns(10);</span>
 
-<span class="fc" id="L714">        c1item3 = new JTextField();</span>
-<span class="fc" id="L715">        c1item3.setColumns(10);</span>
-<span class="fc" id="L716">        c1item3.setBounds(279, 362, 142, 33);</span>
-<span class="fc" id="L717">        damagePanel.add(c1item3);</span>
+<span class="fc" id="L717">        c1item3 = new JTextField();</span>
+<span class="fc" id="L718">        c1item3.setColumns(10);</span>
+<span class="fc" id="L719">        c1item3.setBounds(279, 362, 142, 33);</span>
+<span class="fc" id="L720">        damagePanel.add(c1item3);</span>
 
-<span class="fc" id="L719">        c1item5 = new JTextField();</span>
-<span class="fc" id="L720">        c1item5.setColumns(10);</span>
-<span class="fc" id="L721">        c1item5.setBounds(279, 431, 142, 33);</span>
-<span class="fc" id="L722">        damagePanel.add(c1item5);</span>
+<span class="fc" id="L722">        c1item5 = new JTextField();</span>
+<span class="fc" id="L723">        c1item5.setColumns(10);</span>
+<span class="fc" id="L724">        c1item5.setBounds(279, 431, 142, 33);</span>
+<span class="fc" id="L725">        damagePanel.add(c1item5);</span>
 
-<span class="fc" id="L724">        c1item2 = new JTextField();</span>
-<span class="fc" id="L725">        c1item2.setColumns(10);</span>
-<span class="fc" id="L726">        c1item2.setBounds(431, 293, 142, 33);</span>
-<span class="fc" id="L727">        damagePanel.add(c1item2);</span>
+<span class="fc" id="L727">        c1item2 = new JTextField();</span>
+<span class="fc" id="L728">        c1item2.setColumns(10);</span>
+<span class="fc" id="L729">        c1item2.setBounds(431, 293, 142, 33);</span>
+<span class="fc" id="L730">        damagePanel.add(c1item2);</span>
 
-<span class="fc" id="L729">        c1item4 = new JTextField();</span>
-<span class="fc" id="L730">        c1item4.setColumns(10);</span>
-<span class="fc" id="L731">        c1item4.setBounds(431, 362, 142, 33);</span>
-<span class="fc" id="L732">        damagePanel.add(c1item4);</span>
+<span class="fc" id="L732">        c1item4 = new JTextField();</span>
+<span class="fc" id="L733">        c1item4.setColumns(10);</span>
+<span class="fc" id="L734">        c1item4.setBounds(431, 362, 142, 33);</span>
+<span class="fc" id="L735">        damagePanel.add(c1item4);</span>
 
-<span class="fc" id="L734">        c1item6 = new JTextField();</span>
-<span class="fc" id="L735">        c1item6.setColumns(10);</span>
-<span class="fc" id="L736">        c1item6.setBounds(431, 431, 142, 33);</span>
-<span class="fc" id="L737">        damagePanel.add(c1item6);</span>
+<span class="fc" id="L737">        c1item6 = new JTextField();</span>
+<span class="fc" id="L738">        c1item6.setColumns(10);</span>
+<span class="fc" id="L739">        c1item6.setBounds(431, 431, 142, 33);</span>
+<span class="fc" id="L740">        damagePanel.add(c1item6);</span>
 
-                                         // Setting the  TextFields for the Second chosen champion and its given items
+        // Setting the  TextFields for the Second chosen champion and its given items
         // Also attaching said field to the panels
-<span class="fc" id="L741">        c2item1 = new JTextField();</span>
-<span class="fc" id="L742">        c2item1.setColumns(10);</span>
-<span class="fc" id="L743">        c2item1.setBounds(689, 293, 142, 33);</span>
-<span class="fc" id="L744">        damagePanel.add(c2item1);</span>
+<span class="fc" id="L744">        c2item1 = new JTextField();</span>
+<span class="fc" id="L745">        c2item1.setColumns(10);</span>
+<span class="fc" id="L746">        c2item1.setBounds(689, 293, 142, 33);</span>
+<span class="fc" id="L747">        damagePanel.add(c2item1);</span>
 
-<span class="fc" id="L746">        c2item2 = new JTextField();</span>
-<span class="fc" id="L747">        c2item2.setColumns(10);</span>
-<span class="fc" id="L748">        c2item2.setBounds(841, 293, 142, 33);</span>
-<span class="fc" id="L749">        damagePanel.add(c2item2);</span>
+<span class="fc" id="L749">        c2item2 = new JTextField();</span>
+<span class="fc" id="L750">        c2item2.setColumns(10);</span>
+<span class="fc" id="L751">        c2item2.setBounds(841, 293, 142, 33);</span>
+<span class="fc" id="L752">        damagePanel.add(c2item2);</span>
 
-<span class="fc" id="L751">        c2item3 = new JTextField();</span>
-<span class="fc" id="L752">        c2item3.setColumns(10);</span>
-<span class="fc" id="L753">        c2item3.setBounds(689, 362, 142, 33);</span>
-<span class="fc" id="L754">        damagePanel.add(c2item3);</span>
+<span class="fc" id="L754">        c2item3 = new JTextField();</span>
+<span class="fc" id="L755">        c2item3.setColumns(10);</span>
+<span class="fc" id="L756">        c2item3.setBounds(689, 362, 142, 33);</span>
+<span class="fc" id="L757">        damagePanel.add(c2item3);</span>
 
-<span class="fc" id="L756">        c2item4 = new JTextField();</span>
-<span class="fc" id="L757">        c2item4.setColumns(10);</span>
-<span class="fc" id="L758">        c2item4.setBounds(841, 362, 142, 33);</span>
-<span class="fc" id="L759">        damagePanel.add(c2item4);</span>
+<span class="fc" id="L759">        c2item4 = new JTextField();</span>
+<span class="fc" id="L760">        c2item4.setColumns(10);</span>
+<span class="fc" id="L761">        c2item4.setBounds(841, 362, 142, 33);</span>
+<span class="fc" id="L762">        damagePanel.add(c2item4);</span>
 
-<span class="fc" id="L761">        c2item5 = new JTextField();</span>
-<span class="fc" id="L762">        c2item5.setColumns(10);</span>
-<span class="fc" id="L763">        c2item5.setBounds(689, 431, 142, 33);</span>
-<span class="fc" id="L764">        damagePanel.add(c2item5);</span>
+<span class="fc" id="L764">        c2item5 = new JTextField();</span>
+<span class="fc" id="L765">        c2item5.setColumns(10);</span>
+<span class="fc" id="L766">        c2item5.setBounds(689, 431, 142, 33);</span>
+<span class="fc" id="L767">        damagePanel.add(c2item5);</span>
 
-<span class="fc" id="L766">        c2item6 = new JTextField();</span>
-<span class="fc" id="L767">        c2item6.setColumns(10);</span>
-<span class="fc" id="L768">        c2item6.setBounds(841, 431, 142, 33);</span>
-<span class="fc" id="L769">        damagePanel.add(c2item6);</span>
+<span class="fc" id="L769">        c2item6 = new JTextField();</span>
+<span class="fc" id="L770">        c2item6.setColumns(10);</span>
+<span class="fc" id="L771">        c2item6.setBounds(841, 431, 142, 33);</span>
+<span class="fc" id="L772">        damagePanel.add(c2item6);</span>
 
-                                         // Labels to indicate where the user has to input the items for champion 1
-<span class="fc" id="L772">        JLabel lblItem = new JLabel(&quot;Item 1&quot;);</span>
-<span class="fc" id="L773">        lblItem.setBounds(279, 268, 46, 14);</span>
-<span class="fc" id="L774">        damagePanel.add(lblItem);</span>
+        // Labels to indicate where the user has to input the items for champion 1
+<span class="fc" id="L775">        JLabel lblItem = new JLabel(&quot;Item 1&quot;);</span>
+<span class="fc" id="L776">        lblItem.setBounds(279, 268, 46, 14);</span>
+<span class="fc" id="L777">        damagePanel.add(lblItem);</span>
 
-<span class="fc" id="L776">        JLabel lblItem_1 = new JLabel(&quot;Item 2&quot;);</span>
-<span class="fc" id="L777">        lblItem_1.setBounds(431, 268, 46, 14);</span>
-<span class="fc" id="L778">        damagePanel.add(lblItem_1);</span>
+<span class="fc" id="L779">        JLabel lblItem_1 = new JLabel(&quot;Item 2&quot;);</span>
+<span class="fc" id="L780">        lblItem_1.setBounds(431, 268, 46, 14);</span>
+<span class="fc" id="L781">        damagePanel.add(lblItem_1);</span>
 
-<span class="fc" id="L780">        JLabel lblItem_2 = new JLabel(&quot;Item 3&quot;);</span>
-<span class="fc" id="L781">        lblItem_2.setBounds(279, 337, 46, 14);</span>
-<span class="fc" id="L782">        damagePanel.add(lblItem_2);</span>
+<span class="fc" id="L783">        JLabel lblItem_2 = new JLabel(&quot;Item 3&quot;);</span>
+<span class="fc" id="L784">        lblItem_2.setBounds(279, 337, 46, 14);</span>
+<span class="fc" id="L785">        damagePanel.add(lblItem_2);</span>
 
-<span class="fc" id="L784">        JLabel lblItem_3 = new JLabel(&quot;Item 5&quot;);</span>
-<span class="fc" id="L785">        lblItem_3.setBounds(279, 406, 46, 14);</span>
-<span class="fc" id="L786">        damagePanel.add(lblItem_3);</span>
+<span class="fc" id="L787">        JLabel lblItem_3 = new JLabel(&quot;Item 5&quot;);</span>
+<span class="fc" id="L788">        lblItem_3.setBounds(279, 406, 46, 14);</span>
+<span class="fc" id="L789">        damagePanel.add(lblItem_3);</span>
 
-<span class="fc" id="L788">        JLabel lblItem_4 = new JLabel(&quot;Item 4&quot;);</span>
-<span class="fc" id="L789">        lblItem_4.setBounds(431, 337, 46, 14);</span>
-<span class="fc" id="L790">        damagePanel.add(lblItem_4);</span>
+<span class="fc" id="L791">        JLabel lblItem_4 = new JLabel(&quot;Item 4&quot;);</span>
+<span class="fc" id="L792">        lblItem_4.setBounds(431, 337, 46, 14);</span>
+<span class="fc" id="L793">        damagePanel.add(lblItem_4);</span>
 
-<span class="fc" id="L792">        JLabel lblItem_5 = new JLabel(&quot;Item 6&quot;);</span>
-<span class="fc" id="L793">        lblItem_5.setBounds(431, 406, 46, 14);</span>
-<span class="fc" id="L794">        damagePanel.add(lblItem_5);</span>
+<span class="fc" id="L795">        JLabel lblItem_5 = new JLabel(&quot;Item 6&quot;);</span>
+<span class="fc" id="L796">        lblItem_5.setBounds(431, 406, 46, 14);</span>
+<span class="fc" id="L797">        damagePanel.add(lblItem_5);</span>
 
-                                         // Labels to indicate where the user has to input the items for champion 2
-<span class="fc" id="L797">        JLabel label = new JLabel(&quot;Item 1&quot;);</span>
-<span class="fc" id="L798">        label.setBounds(689, 268, 46, 14);</span>
-<span class="fc" id="L799">        damagePanel.add(label);</span>
+        // Labels to indicate where the user has to input the items for champion 2
+<span class="fc" id="L800">        JLabel label = new JLabel(&quot;Item 1&quot;);</span>
+<span class="fc" id="L801">        label.setBounds(689, 268, 46, 14);</span>
+<span class="fc" id="L802">        damagePanel.add(label);</span>
 
-<span class="fc" id="L801">        JLabel label_1 = new JLabel(&quot;Item 2&quot;);</span>
-<span class="fc" id="L802">        label_1.setBounds(841, 268, 46, 14);</span>
-<span class="fc" id="L803">        damagePanel.add(label_1);</span>
+<span class="fc" id="L804">        JLabel label_1 = new JLabel(&quot;Item 2&quot;);</span>
+<span class="fc" id="L805">        label_1.setBounds(841, 268, 46, 14);</span>
+<span class="fc" id="L806">        damagePanel.add(label_1);</span>
 
-<span class="fc" id="L805">        JLabel label_2 = new JLabel(&quot;Item 3&quot;);</span>
-<span class="fc" id="L806">        label_2.setBounds(689, 337, 46, 14);</span>
-<span class="fc" id="L807">        damagePanel.add(label_2);</span>
+<span class="fc" id="L808">        JLabel label_2 = new JLabel(&quot;Item 3&quot;);</span>
+<span class="fc" id="L809">        label_2.setBounds(689, 337, 46, 14);</span>
+<span class="fc" id="L810">        damagePanel.add(label_2);</span>
 
-<span class="fc" id="L809">        JLabel label_3 = new JLabel(&quot;Item 4&quot;);</span>
-<span class="fc" id="L810">        label_3.setBounds(841, 337, 46, 14);</span>
-<span class="fc" id="L811">        damagePanel.add(label_3);</span>
+<span class="fc" id="L812">        JLabel label_3 = new JLabel(&quot;Item 4&quot;);</span>
+<span class="fc" id="L813">        label_3.setBounds(841, 337, 46, 14);</span>
+<span class="fc" id="L814">        damagePanel.add(label_3);</span>
 
-<span class="fc" id="L813">        JLabel label_4 = new JLabel(&quot;Item 5&quot;);</span>
-<span class="fc" id="L814">        label_4.setBounds(689, 406, 46, 14);</span>
-<span class="fc" id="L815">        damagePanel.add(label_4);</span>
+<span class="fc" id="L816">        JLabel label_4 = new JLabel(&quot;Item 5&quot;);</span>
+<span class="fc" id="L817">        label_4.setBounds(689, 406, 46, 14);</span>
+<span class="fc" id="L818">        damagePanel.add(label_4);</span>
 
-<span class="fc" id="L817">        JLabel label_5 = new JLabel(&quot;Item 6&quot;);</span>
-<span class="fc" id="L818">        label_5.setBounds(841, 406, 46, 14);</span>
-<span class="fc" id="L819">        damagePanel.add(label_5);</span>
+<span class="fc" id="L820">        JLabel label_5 = new JLabel(&quot;Item 6&quot;);</span>
+<span class="fc" id="L821">        label_5.setBounds(841, 406, 46, 14);</span>
+<span class="fc" id="L822">        damagePanel.add(label_5);</span>
 
-                                         // Indicates which champion was chosen by the user
-<span class="fc" id="L822">        JLabel lblChampion = new JLabel(&quot;Champion 1&quot;);</span>
-<span class="fc" id="L823">        lblChampion.setBounds(279, 148, 100, 14);</span>
-<span class="fc" id="L824">        damagePanel.add(lblChampion);</span>
+        // Indicates which champion was chosen by the user
+<span class="fc" id="L825">        JLabel lblChampion = new JLabel(&quot;Champion 1&quot;);</span>
+<span class="fc" id="L826">        lblChampion.setBounds(279, 148, 100, 14);</span>
+<span class="fc" id="L827">        damagePanel.add(lblChampion);</span>
 
-<span class="fc" id="L826">        champOne = new JTextField();</span>
-<span class="fc" id="L827">        champOne.setColumns(10);</span>
-<span class="fc" id="L828">        champOne.setBounds(279, 173, 142, 33);</span>
-<span class="fc" id="L829">        damagePanel.add(champOne);</span>
+<span class="fc" id="L829">        champOne = new JTextField();</span>
+<span class="fc" id="L830">        champOne.setColumns(10);</span>
+<span class="fc" id="L831">        champOne.setBounds(279, 173, 142, 33);</span>
+<span class="fc" id="L832">        damagePanel.add(champOne);</span>
 
-                                         // Indicates as to what the 2nd champion is 
-<span class="fc" id="L832">        JLabel lblChampion_1 = new JLabel(&quot;Champion 2&quot;);</span>
-<span class="fc" id="L833">        lblChampion_1.setBounds(689, 148, 100, 14);</span>
-<span class="fc" id="L834">        damagePanel.add(lblChampion_1);</span>
+        // Indicates as to what the 2nd champion is 
+<span class="fc" id="L835">        JLabel lblChampion_1 = new JLabel(&quot;Champion 2&quot;);</span>
+<span class="fc" id="L836">        lblChampion_1.setBounds(689, 148, 100, 14);</span>
+<span class="fc" id="L837">        damagePanel.add(lblChampion_1);</span>
 
-<span class="fc" id="L836">        champTwo = new JTextField();</span>
-<span class="fc" id="L837">        champTwo.setColumns(10);</span>
-<span class="fc" id="L838">        champTwo.setBounds(689, 173, 142, 33);</span>
-<span class="fc" id="L839">        damagePanel.add(champTwo);</span>
+<span class="fc" id="L839">        champTwo = new JTextField();</span>
+<span class="fc" id="L840">        champTwo.setColumns(10);</span>
+<span class="fc" id="L841">        champTwo.setBounds(689, 173, 142, 33);</span>
+<span class="fc" id="L842">        damagePanel.add(champTwo);</span>
 
         // Creating the GO button that will calculate everything for us
-<span class="fc" id="L842">        JButton btnGo = new JButton(&quot;GO!!!&quot;);</span>
-<span class="fc" id="L843">        btnGo.setBounds(1029, 352, 125, 53);</span>
-<span class="fc" id="L844">        damagePanel.add(btnGo);</span>
+<span class="fc" id="L845">        JButton btnGo = new JButton(&quot;GO!!!&quot;);</span>
+<span class="fc" id="L846">        btnGo.setBounds(1029, 352, 125, 53);</span>
+<span class="fc" id="L847">        damagePanel.add(btnGo);</span>
 
-                                         // The field to choose what the champions lvls are 
-<span class="fc" id="L847">        final JTextField champLevel = new JTextField();</span>
-<span class="fc" id="L848">        champLevel.setColumns(10);</span>
-<span class="fc" id="L849">        champLevel.setBounds(1029, 173, 125, 33);</span>
-<span class="fc" id="L850">        damagePanel.add(champLevel);</span>
+        // The field to choose what the champions lvls are 
+<span class="fc" id="L850">        final JTextField champLevel = new JTextField();</span>
+<span class="fc" id="L851">        champLevel.setColumns(10);</span>
+<span class="fc" id="L852">        champLevel.setBounds(1029, 173, 125, 33);</span>
+<span class="fc" id="L853">        damagePanel.add(champLevel);</span>
 
-<span class="fc" id="L852">        final JTextField printer = new JTextField();</span>
-<span class="fc" id="L853">        printer.setColumns(10);</span>
-<span class="fc" id="L854">        printer.setBounds(279, 541, 704, 30);</span>
-<span class="fc" id="L855">        damagePanel.add(printer);</span>
+<span class="fc" id="L855">        final JTextField printer = new JTextField();</span>
+<span class="fc" id="L856">        printer.setColumns(10);</span>
+<span class="fc" id="L857">        printer.setBounds(279, 541, 704, 30);</span>
+<span class="fc" id="L858">        damagePanel.add(printer);</span>
 
-<span class="fc" id="L857">        JLabel lblLevel = new JLabel(&quot;Level&quot;);</span>
-<span class="fc" id="L858">        lblLevel.setBounds(1029, 148, 80, 14);</span>
-<span class="fc" id="L859">        damagePanel.add(lblLevel);</span>
+<span class="fc" id="L860">        JLabel lblLevel = new JLabel(&quot;Level&quot;);</span>
+<span class="fc" id="L861">        lblLevel.setBounds(1029, 148, 80, 14);</span>
+<span class="fc" id="L862">        damagePanel.add(lblLevel);</span>
 
-                                         // This action listen for the go button that will calculate their damage
-<span class="fc" id="L862">        btnGo.addMouseListener(new MouseAdapter() {</span>
+        // This action listen for the go button that will calculate their damage
+<span class="fc" id="L865">        btnGo.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
 
-                                        		 // Creating instance of the SearchItem and SearchChampion for the calculation
-<span class="nc" id="L867">                SearchItem searcher = new SearchItem();</span>
-<span class="nc" id="L868">                SearchChampion seeker = new SearchChampion();</span>
-<span class="nc" id="L869">                Calculator calc = new Calculator();</span>
-<span class="nc" id="L870">                Champion chp1 = seeker.getChampion(champOne.getText());</span>
-<span class="nc" id="L871">                Champion chp2 = seeker.getChampion(champTwo.getText());</span>
+                // Creating instance of the SearchItem and SearchChampion for the calculation
+<span class="nc" id="L870">                SearchItem searcher = new SearchItem();</span>
+<span class="nc" id="L871">                SearchChampion seeker = new SearchChampion();</span>
+<span class="nc" id="L872">                Calculator calc = new Calculator();</span>
+<span class="nc" id="L873">                Champion chp1 = seeker.getChampion(champOne.getText());</span>
+<span class="nc" id="L874">                Champion chp2 = seeker.getChampion(champTwo.getText());</span>
 
-                                        		 // Receiving that item from the fields and placing them in an array
-<span class="nc bnc" id="L874" title="All 4 branches missed.">                if(!((chp1 == null) || (chp2 == null))){</span>
-<span class="nc" id="L875">                int lvl = Integer.parseInt(champLevel.getText());</span>
-<span class="nc" id="L876">                Item[] oneItems = {searcher.getItem(c1item1.getText()), searcher.getItem(c1item2.getText()),</span>
-                    searcher.getItem(c1item3.getText()), searcher.getItem(c1item4.getText()),
-                    searcher.getItem(c1item5.getText()), searcher.getItem(c1item6.getText())};
-<span class="nc" id="L879">                Item[] twoItems = {searcher.getItem(c2item1.getText()), searcher.getItem(c2item2.getText()),</span>
-                    searcher.getItem(c2item3.getText()), searcher.getItem(c2item4.getText()),
-                    searcher.getItem(c2item5.getText()), searcher.getItem(c2item6.getText())};
-
-                                        		 // Adding all the AD
-<span class="nc" id="L884">                int ad = 0;</span>
-<span class="nc bnc" id="L885" title="All 2 branches missed.">                for (Item i : oneItems) {</span>
-<span class="nc bnc" id="L886" title="All 2 branches missed.">                    if (!(i == null)) {</span>
-<span class="nc" id="L887">                        ad += i.getAD();</span>
+                // Receiving that item from the fields and placing them in an array
+<span class="nc bnc" id="L877" title="All 4 branches missed.">                if (!((chp1 == null) || (chp2 == null))) {</span>
+<span class="nc" id="L878">                    int lvl = 1;</span>
+<span class="nc bnc" id="L879" title="All 2 branches missed.">                    if (!(champLevel.getText().equals(&quot;&quot;))) {</span>
+<span class="nc" id="L880">                        lvl = Integer.parseInt(champLevel.getText());</span>
                     }
-                }
-                // Adding all the Armor
-<span class="nc" id="L891">                int ar = 0;</span>
-<span class="nc bnc" id="L892" title="All 2 branches missed.">                for (Item i : twoItems) {</span>
-<span class="nc bnc" id="L893" title="All 2 branches missed.">                    if (!(i == null)) {</span>
-<span class="nc" id="L894">                        ar += i.getAR();</span>
+<span class="nc" id="L882">                    Item[] oneItems = {searcher.getItem(c1item1.getText()), searcher.getItem(c1item2.getText()),</span>
+                        searcher.getItem(c1item3.getText()), searcher.getItem(c1item4.getText()),
+                        searcher.getItem(c1item5.getText()), searcher.getItem(c1item6.getText())};
+<span class="nc" id="L885">                    Item[] twoItems = {searcher.getItem(c2item1.getText()), searcher.getItem(c2item2.getText()),</span>
+                        searcher.getItem(c2item3.getText()), searcher.getItem(c2item4.getText()),
+                        searcher.getItem(c2item5.getText()), searcher.getItem(c2item6.getText())};
+
+                    // Adding all the AD
+<span class="nc" id="L890">                    int ad = 0;</span>
+<span class="nc bnc" id="L891" title="All 2 branches missed.">                    for (Item i : oneItems) {</span>
+<span class="nc bnc" id="L892" title="All 2 branches missed.">                        if (!(i == null)) {</span>
+<span class="nc" id="L893">                            ad += i.getAD();</span>
+                        }
                     }
+                    // Adding all the Armor
+<span class="nc" id="L897">                    int ar = 0;</span>
+<span class="nc bnc" id="L898" title="All 2 branches missed.">                    for (Item i : twoItems) {</span>
+<span class="nc bnc" id="L899" title="All 2 branches missed.">                        if (!(i == null)) {</span>
+<span class="nc" id="L900">                            ar += i.getAR();</span>
+                        }
+                    }
+
+                    // Receiving the lvl to caluclate the final stat
+                    // Showing the damage champion 1 will do to champion 2 to the user through the GUI
+<span class="nc" id="L906">                    ad += chp1.getAD(lvl);</span>
+<span class="nc" id="L907">                    ar += chp2.getAR(lvl);</span>
+<span class="nc" id="L908">                    int damage = Integer.parseInt(Math.round(calc.getPhysicalDamage(0, 1.0, ad, ar, 0, 0, 0, 0)) + &quot;&quot;);</span>
+<span class="nc" id="L909">                    String line = chp1.getName() + &quot; deals &quot; + damage + &quot; damage to &quot; + chp2.getName() + &quot; with each attack!&quot;;</span>
+<span class="nc" id="L910">                    printer.setText(line);</span>
                 }
 
-                                        		 // Receiving the lvl to caluclate the final stat
-                // Showing the damage champion 1 will do to champion 2 to the user through the GUI
-<span class="nc" id="L900">                ad += chp1.getAD(lvl);</span>
-<span class="nc" id="L901">                ar += chp2.getAR(lvl);</span>
-<span class="nc" id="L902">                int damage = Integer.parseInt(Math.round(calc.getPhysicalDamage(0, 1.0, ad, ar, 0, 0, 0, 0)) + &quot;&quot;);</span>
-<span class="nc" id="L903">                String line = chp1.getName() + &quot; deals &quot; + damage + &quot; damage to &quot; + chp2.getName() + &quot; with each attack!&quot;;</span>
-<span class="nc" id="L904">                printer.setText(line);</span>
-                }
+<span class="nc" id="L913">                c1item1.setText(&quot;&quot;);</span>
+<span class="nc" id="L914">                c1item2.setText(&quot;&quot;);</span>
+<span class="nc" id="L915">                c1item3.setText(&quot;&quot;);</span>
+<span class="nc" id="L916">                c1item4.setText(&quot;&quot;);</span>
+<span class="nc" id="L917">                c1item5.setText(&quot;&quot;);</span>
+<span class="nc" id="L918">                c1item6.setText(&quot;&quot;);</span>
 
-<span class="nc" id="L907">                c1item1.setText(&quot;&quot;);</span>
-<span class="nc" id="L908">                c1item2.setText(&quot;&quot;);</span>
-<span class="nc" id="L909">                c1item3.setText(&quot;&quot;);</span>
-<span class="nc" id="L910">                c1item4.setText(&quot;&quot;);</span>
-<span class="nc" id="L911">                c1item5.setText(&quot;&quot;);</span>
-<span class="nc" id="L912">                c1item6.setText(&quot;&quot;);</span>
+<span class="nc" id="L920">                c2item1.setText(&quot;&quot;);</span>
+<span class="nc" id="L921">                c2item2.setText(&quot;&quot;);</span>
+<span class="nc" id="L922">                c2item3.setText(&quot;&quot;);</span>
+<span class="nc" id="L923">                c2item4.setText(&quot;&quot;);</span>
+<span class="nc" id="L924">                c2item5.setText(&quot;&quot;);</span>
+<span class="nc" id="L925">                c2item6.setText(&quot;&quot;);</span>
 
-<span class="nc" id="L914">                c2item1.setText(&quot;&quot;);</span>
-<span class="nc" id="L915">                c2item2.setText(&quot;&quot;);</span>
-<span class="nc" id="L916">                c2item3.setText(&quot;&quot;);</span>
-<span class="nc" id="L917">                c2item4.setText(&quot;&quot;);</span>
-<span class="nc" id="L918">                c2item5.setText(&quot;&quot;);</span>
-<span class="nc" id="L919">                c2item6.setText(&quot;&quot;);</span>
-
-                                        		 //Refreshing the damage panel 
-<span class="nc" id="L922">                damagePanel.setVisible(false);</span>
-<span class="nc" id="L923">                damagePanel.setVisible(true);</span>
-<span class="nc" id="L924">            }</span>
+                //Refreshing the damage panel 
+<span class="nc" id="L928">                damagePanel.setVisible(false);</span>
+<span class="nc" id="L929">                damagePanel.setVisible(true);</span>
+<span class="nc" id="L930">            }</span>
         });
 
         // The code that is used to display the initial panel
-<span class="fc" id="L928">        InitialPanel.setLayout(null);</span>
-<span class="fc" id="L929">        JButton champButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L930">        champButton.setBounds(50, 350, 85, 85);</span>
-<span class="fc" id="L931">        InitialPanel.add(champButton);</span>
+<span class="fc" id="L934">        InitialPanel.setLayout(null);</span>
+<span class="fc" id="L935">        JButton champButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L936">        champButton.setBounds(50, 350, 85, 85);</span>
+<span class="fc" id="L937">        InitialPanel.add(champButton);</span>
 
-		// This button switches from the initial panel to the champion panel
-<span class="fc" id="L934">        champButton.addMouseListener(new MouseAdapter() {</span>
-
-            public void mouseClicked(MouseEvent e) {
-
-				// Swapping visibilities
-<span class="nc" id="L939">                InitialPanel.setVisible(false);</span>
-<span class="nc" id="L940">                champPanel.setVisible(true);</span>
-
-<span class="nc" id="L942">            }</span>
-        });
-<span class="fc" id="L944">        champButton.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L945">        champButton.setBackground(Color.BLUE);</span>
-<span class="fc" id="L946">        champButton.setIcon(new ImageIcon(champImg));</span>
-<span class="fc" id="L947">        champButton.setForeground(Color.BLUE);</span>
-
-		// This button switching from the inital panel to the damage panel
-<span class="fc" id="L950">        JButton damageButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L951">        damageButton.setBounds(50, 500, 85, 85);</span>
-<span class="fc" id="L952">        InitialPanel.add(damageButton);</span>
-<span class="fc" id="L953">        damageButton.addMouseListener(new MouseAdapter() {</span>
+        // This button switches from the initial panel to the champion panel
+<span class="fc" id="L940">        champButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent e) {
-				// Swapping visibilities
 
-<span class="nc" id="L958">                InitialPanel.setVisible(false);</span>
-<span class="nc" id="L959">                damagePanel.setVisible(true);</span>
+                // Swapping visibilities
+<span class="nc" id="L945">                InitialPanel.setVisible(false);</span>
+<span class="nc" id="L946">                champPanel.setVisible(true);</span>
 
-<span class="nc" id="L961">            }</span>
+<span class="nc" id="L948">            }</span>
         });
-<span class="fc" id="L963">        damageButton.setBackground(Color.BLUE);</span>
-<span class="fc" id="L964">        damageButton.setIcon(new ImageIcon(damageImg));</span>
-<span class="fc" id="L965">        damageButton.setForeground(Color.BLUE);</span>
+<span class="fc" id="L950">        champButton.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L951">        champButton.setBackground(Color.BLUE);</span>
+<span class="fc" id="L952">        champButton.setIcon(new ImageIcon(champImg));</span>
+<span class="fc" id="L953">        champButton.setForeground(Color.BLUE);</span>
 
-		// This button is responsible for changed from the initial panel to the item panel
-<span class="fc" id="L968">        JButton itemButton = new JButton(&quot;&quot;);</span>
-<span class="fc" id="L969">        itemButton.setBounds(50, 200, 85, 85);</span>
-<span class="fc" id="L970">        InitialPanel.add(itemButton);</span>
+        // This button switching from the inital panel to the damage panel
+<span class="fc" id="L956">        JButton damageButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L957">        damageButton.setBounds(50, 500, 85, 85);</span>
+<span class="fc" id="L958">        InitialPanel.add(damageButton);</span>
+<span class="fc" id="L959">        damageButton.addMouseListener(new MouseAdapter() {</span>
 
-<span class="fc" id="L972">        itemButton.addMouseListener(new MouseAdapter() {</span>
+            public void mouseClicked(MouseEvent e) {
+                // Swapping visibilities
+
+<span class="nc" id="L964">                InitialPanel.setVisible(false);</span>
+<span class="nc" id="L965">                damagePanel.setVisible(true);</span>
+
+<span class="nc" id="L967">            }</span>
+        });
+<span class="fc" id="L969">        damageButton.setBackground(Color.BLUE);</span>
+<span class="fc" id="L970">        damageButton.setIcon(new ImageIcon(damageImg));</span>
+<span class="fc" id="L971">        damageButton.setForeground(Color.BLUE);</span>
+
+        // This button is responsible for changed from the initial panel to the item panel
+<span class="fc" id="L974">        JButton itemButton = new JButton(&quot;&quot;);</span>
+<span class="fc" id="L975">        itemButton.setBounds(50, 200, 85, 85);</span>
+<span class="fc" id="L976">        InitialPanel.add(itemButton);</span>
+
+<span class="fc" id="L978">        itemButton.addMouseListener(new MouseAdapter() {</span>
 
             public void mouseClicked(MouseEvent arg0) {
-				// Swapping visibilities
+                // Swapping visibilities
 
-<span class="nc" id="L977">                InitialPanel.setVisible(false);</span>
-<span class="nc" id="L978">                itemPanel.setVisible(true);</span>
+<span class="nc" id="L983">                InitialPanel.setVisible(false);</span>
+<span class="nc" id="L984">                itemPanel.setVisible(true);</span>
 
-<span class="nc" id="L980">            }</span>
+<span class="nc" id="L986">            }</span>
         });
-<span class="fc" id="L982">        itemButton.setBackground(Color.BLUE);</span>
-<span class="fc" id="L983">        itemButton.setIcon(new ImageIcon(itemImg));</span>
-<span class="fc" id="L984">        itemButton.setForeground(Color.BLUE);</span>
+<span class="fc" id="L988">        itemButton.setBackground(Color.BLUE);</span>
+<span class="fc" id="L989">        itemButton.setIcon(new ImageIcon(itemImg));</span>
+<span class="fc" id="L990">        itemButton.setForeground(Color.BLUE);</span>
 
-<span class="fc" id="L986">        JLabel banner = new JLabel(&quot;&quot;);</span>
-<span class="fc" id="L987">        banner.setBounds(360, 0, 512, 205);</span>
-<span class="fc" id="L988">        InitialPanel.add(banner);</span>
-<span class="fc" id="L989">        banner.setIcon(new ImageIcon(img));</span>
+<span class="fc" id="L992">        JLabel banner = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L993">        banner.setBounds(360, 0, 512, 205);</span>
+<span class="fc" id="L994">        InitialPanel.add(banner);</span>
+<span class="fc" id="L995">        banner.setIcon(new ImageIcon(img));</span>
 
-		// Setting the Txt Panels and fonts for each panel for the inital panel
-<span class="fc" id="L992">        JTextPane txtpnChampionLibrary = new JTextPane();</span>
-<span class="fc" id="L993">        txtpnChampionLibrary.setBounds(200, 375, 120, 50);</span>
-<span class="fc" id="L994">        InitialPanel.add(txtpnChampionLibrary);</span>
-<span class="fc" id="L995">        txtpnChampionLibrary.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L996">        txtpnChampionLibrary.setText(&quot;Champion Library&quot;);</span>
+        // Setting the Txt Panels and fonts for each panel for the inital panel
+<span class="fc" id="L998">        JTextPane txtpnChampionLibrary = new JTextPane();</span>
+<span class="fc" id="L999">        txtpnChampionLibrary.setBounds(200, 375, 120, 50);</span>
+<span class="fc" id="L1000">        InitialPanel.add(txtpnChampionLibrary);</span>
+<span class="fc" id="L1001">        txtpnChampionLibrary.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L1002">        txtpnChampionLibrary.setText(&quot;Champion Library&quot;);</span>
 
-<span class="fc" id="L998">        JTextPane txtpnItemLibrary = new JTextPane();</span>
-<span class="fc" id="L999">        txtpnItemLibrary.setBounds(200, 225, 120, 50);</span>
-<span class="fc" id="L1000">        InitialPanel.add(txtpnItemLibrary);</span>
-<span class="fc" id="L1001">        txtpnItemLibrary.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L1002">        txtpnItemLibrary.setText(&quot;Item Library&quot;);</span>
+<span class="fc" id="L1004">        JTextPane txtpnItemLibrary = new JTextPane();</span>
+<span class="fc" id="L1005">        txtpnItemLibrary.setBounds(200, 225, 120, 50);</span>
+<span class="fc" id="L1006">        InitialPanel.add(txtpnItemLibrary);</span>
+<span class="fc" id="L1007">        txtpnItemLibrary.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L1008">        txtpnItemLibrary.setText(&quot;Item Library&quot;);</span>
 
-<span class="fc" id="L1004">        JTextPane txtpnDamageCalculator = new JTextPane();</span>
-<span class="fc" id="L1005">        txtpnDamageCalculator.setBounds(200, 525, 125, 50);</span>
-<span class="fc" id="L1006">        InitialPanel.add(txtpnDamageCalculator);</span>
-<span class="fc" id="L1007">        txtpnDamageCalculator.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L1008">        txtpnDamageCalculator.setText(&quot;Damage Calculator&quot;);</span>
+<span class="fc" id="L1010">        JTextPane txtpnDamageCalculator = new JTextPane();</span>
+<span class="fc" id="L1011">        txtpnDamageCalculator.setBounds(200, 525, 125, 50);</span>
+<span class="fc" id="L1012">        InitialPanel.add(txtpnDamageCalculator);</span>
+<span class="fc" id="L1013">        txtpnDamageCalculator.setFont(new Font(&quot;Sitka Banner&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L1014">        txtpnDamageCalculator.setText(&quot;Damage Calculator&quot;);</span>
 
-<span class="fc" id="L1010">    }</span>
+<span class="fc" id="L1016">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

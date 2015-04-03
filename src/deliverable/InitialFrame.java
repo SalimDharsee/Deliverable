@@ -25,9 +25,9 @@ import javax.swing.JTextField;
 
 public class InitialFrame {
 
-	// This class contains majority of the code that is used when viewing the GUI and branches off to other classes when
+    // This class contains majority of the code that is used when viewing the GUI and branches off to other classes when
     // we need to get the logic computed 
-	// All of the global variables that are used in the main functionality of our GUI
+    // All of the global variables that are used in the main functionality of our GUI
     private JFrame frame;
     private JTextField txtDamage;
     private JTextField searchTXT;
@@ -83,13 +83,13 @@ public class InitialFrame {
     private SearchChampion aChampion = new SearchChampion();
     private SearchItem aItem = new SearchItem();
 
-	// The main function that in turn runs all of the code
+    // The main function that in turn runs all of the code
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
 
-					// Setting the frame visible to the user
+                    // Setting the frame visible to the user
                     InitialFrame window = new InitialFrame();
                     window.frame.setVisible(true);
                 } catch (Exception e) {
@@ -104,7 +104,7 @@ public class InitialFrame {
         initialize();
     }
 
-	// This method contains all of the panels and there buttons, fields and labels 
+    // This method contains all of the panels and there buttons, fields and labels 
     private void initialize() {
 
         // Creating an instance of JFrame 
@@ -127,7 +127,7 @@ public class InitialFrame {
         Image img = new ImageIcon(folder + separator + "bin" + separator + "banner.png").getImage();
         Image backimg = new ImageIcon(folder + separator + "bin" + separator + "back.png").getImage();
 
-		// Setting up the panel for the item compare, champion compare, and damage calculator
+        // Setting up the panel for the item compare, champion compare, and damage calculator
         final JPanel itemPanel = new JPanel();
         itemPanel.setBackground(Color.WHITE);
         itemPanel.setBounds(0, 0, 1184, 661);
@@ -151,20 +151,20 @@ public class InitialFrame {
         InitialPanel.setVisible(true);
         itemPanel.setVisible(false);
 
-		// The following code is now the code for the item panel
+        // The following code is now the code for the item panel
         // This is a button when clicked returns us to the inital panel from the item panel 
         JButton itemPanelBACKButton = new JButton("");
         itemPanelBACKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-				// Swapping visiblities 
+                // Swapping visiblities 
                 InitialPanel.setVisible(true);
                 itemPanel.setVisible(false);
             }
         });
 
-		// Setting the layout and the parameters for the back button
+        // Setting the layout and the parameters for the back button
         itemPanel.setLayout(null);
         itemPanelBACKButton.setBounds(0, 0, 237, 85);
         itemPanelBACKButton.setIcon(new ImageIcon(backimg));
@@ -179,7 +179,7 @@ public class InitialFrame {
             }
         });
 
-		// Setting up the color for the buttons 
+        // Setting up the color for the buttons 
         itemPanelITEMButton.setBackground(Color.WHITE);
         itemPanelITEMButton.setForeground(Color.WHITE);
         itemPanelITEMButton.setBounds(0, 100, 80, 95);
@@ -199,13 +199,13 @@ public class InitialFrame {
             }
         });
 
-		// Finalizing the parameters for the champion panel button
+        // Finalizing the parameters for the champion panel button
         itemPanelCHAMPButton.setBackground(Color.WHITE);
         itemPanelCHAMPButton.setBounds(0, 250, 80, 95);
         itemPanelCHAMPButton.setIcon(new ImageIcon(champImg));
         itemPanel.add(itemPanelCHAMPButton);
 
-		// Button that is used to switch from the item panel to the damage panel 
+        // Button that is used to switch from the item panel to the damage panel 
         JButton itemPanelDAMAGEButton = new JButton("");
         itemPanelDAMAGEButton.addMouseListener(new MouseAdapter() {
 
@@ -216,13 +216,13 @@ public class InitialFrame {
             }
         });
 
-		// Finalizing the parameters of the damage button
+        // Finalizing the parameters of the damage button
         itemPanelDAMAGEButton.setBackground(Color.WHITE);
         itemPanelDAMAGEButton.setBounds(0, 400, 80, 95);
         itemPanelDAMAGEButton.setIcon(new ImageIcon(damageImg));
         itemPanel.add(itemPanelDAMAGEButton);
 
-		// The text field that is used to receive input from the user through the gui
+        // The text field that is used to receive input from the user through the gui
         // This input is the name of the item they wish to view 
         txtItemSearch = new JTextField();
         txtItemSearch.setBounds(300, 115, 230, 40);
@@ -233,7 +233,7 @@ public class InitialFrame {
         lblItemName.setBounds(700, 115, 180, 40);
         itemPanel.add(lblItemName);
 
-		// This is the search button, when clicked it calls Champion to rigoursly look through the CSV of champions 
+        // This is the search button, when clicked it calls Champion to rigoursly look through the CSV of champions 
         JButton searchButton = new JButton("Search");
         searchButton.addMouseListener(new MouseAdapter() {
             JLabel picLabel = new JLabel("");
@@ -243,11 +243,11 @@ public class InitialFrame {
                 String checkText = txtItemSearch.getText();
                 txtItemSearch.setText("");
                 Item item = aItem.getItem(checkText);
-				// A check to see if the item returns a null from champion to stop any pointer errors 
+                // A check to see if the item returns a null from champion to stop any pointer errors 
 
                 if (!(item == null)) {
 
-					// Else they set the lblItemName to the found item name and display the stats on the GUI
+                    // Else they set the lblItemName to the found item name and display the stats on the GUI
                     lblItemName.setText(item.getName());
                     picLabel.setBounds(1000, 115, 64, 64);
                     picLabel.setIcon(new ImageIcon(item.picLocation()));
@@ -280,7 +280,7 @@ public class InitialFrame {
         JLabel itemMS = new JLabel();
         JLabel itemP = new JLabel();
 
-		// Just setting up the parameters for the labels defined above 
+        // Just setting up the parameters for the labels defined above 
         itemHL.setText("Health Gain");
         itemHL.setBounds(289, 365, 87, 20);
 
@@ -299,7 +299,7 @@ public class InitialFrame {
         itemMS.setText("Speed");
         itemMS.setBounds(1039, 365, 87, 20);
 
-		// Adding said labels to the item panel
+        // Adding said labels to the item panel
         itemPanel.add(itemHL);
         itemPanel.add(itemAD);
         itemPanel.add(itemAS);
@@ -308,7 +308,7 @@ public class InitialFrame {
         itemPanel.add(itemMS);
         itemPanel.add(itemP);
 
-		// Creating new text fields for the user to view, basically shows what stats go where 
+        // Creating new text fields for the user to view, basically shows what stats go where 
         txHL = new JTextField();
 
         txHL.setBounds(289, 382, 87, 20);
@@ -340,14 +340,16 @@ public class InitialFrame {
         itemPanel.add(txSpeed);
         txSpeed.setColumns(10);
 
-		// The button that is used when the user wants to compare the current item to that of another
+        // The button that is used when the user wants to compare the current item to that of another
         JButton compareButton = new JButton("Compare");
         compareButton.addMouseListener(new MouseAdapter() {
 
-			// Calls the ItemCompare class to calculate the logic for a given item
+            // Calls the ItemCompare class to calculate the logic for a given item
             public void mouseClicked(MouseEvent e) {
-                ItemCompare aCompare = new ItemCompare(aItem.getItem(lblItemName.getText()));
-                aCompare.setVisible(true);
+                if (!(aItem.getItem(lblItemName.getText()) == null)) {
+                    ItemCompare aCompare = new ItemCompare(aItem.getItem(lblItemName.getText()));
+                    aCompare.setVisible(true);
+                }
                 // Setting the visibility of the frame to be true
 
             }
@@ -356,7 +358,7 @@ public class InitialFrame {
         compareButton.setBounds(700, 256, 117, 33);
         itemPanel.add(compareButton);
 
-		// Now we are entering the code that is used for the champion panel 
+        // Now we are entering the code that is used for the champion panel 
         // This button would take us back to the initial panel from damage panel
         JButton champPanelBACKButton = new JButton("");
         champPanelBACKButton.addMouseListener(new MouseAdapter() {
@@ -407,7 +409,7 @@ public class InitialFrame {
         champPanelITEMButton.setIcon(new ImageIcon(itemImg));
         champPanel.add(champPanelITEMButton);
 
-		// This button is used to switch from the champion panel to the damage panel
+        // This button is used to switch from the champion panel to the damage panel
         JButton champPanelDAMAGEButton = new JButton("");
         champPanelDAMAGEButton.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -444,7 +446,7 @@ public class InitialFrame {
                 // Checks to make sure that the champions name recieved from Champion is not a null 
                 if (!(champ == null)) {
 
-					// if it is not that than we can show the champion name along with its picture and stats
+                    // if it is not that than we can show the champion name along with its picture and stats
                     nameLabel.setText(champ.getName());
                     pictureLabel.setBounds(1000, 115, 174, 275);
                     pictureLabel.setIcon(new ImageIcon(champ.picLocation()));
@@ -472,7 +474,7 @@ public class InitialFrame {
             }
         });
 
-		// The creating of the labels we use to display the content of the champion
+        // The creating of the labels we use to display the content of the champion
         search.setBounds(548, 124, 89, 23);
         champPanel.add(search);
 
@@ -494,7 +496,7 @@ public class InitialFrame {
         JLabel labelE = new JLabel();
         JLabel labelR = new JLabel();
 
-		// Setting each labels text
+        // Setting each labels text
         labelHP.setText("Base Health");
         labelHP.setBounds(289, 365, 87, 20);
 
@@ -545,7 +547,7 @@ public class InitialFrame {
         champPanel.add(labelMS);
         champPanel.add(labelRange);
 
-		// the comments between  each field show what stat is being set
+        // the comments between  each field show what stat is being set
         txtHP = new JTextField();
         // txtHP.setText("Base Health\r\n");
         txtHP.setBounds(289, 382, 87, 20);
@@ -575,7 +577,7 @@ public class InitialFrame {
         txtASL.setBounds(589, 436, 87, 20);
         champPanel.add(txtASL);
         txtASL.setColumns(10);
-        
+
         txtAS = new JTextField();
         // txtAS.setText("Attack Speed\r\n");
         txtAS.setBounds(589, 382, 87, 20);
@@ -617,22 +619,23 @@ public class InitialFrame {
         champPanel.add(txtRange);
         txtRange.setColumns(10);
 
-		// The compare button that will pop open a new frame that can serach for another champion and compare the their stats
+        // The compare button that will pop open a new frame that can serach for another champion and compare the their stats
         JButton btnNewButton_1 = new JButton("Compare");
         btnNewButton_1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 // Calling the ChampionCompare frame and setting it visible
-                ChampionCompare aCompare = new ChampionCompare(aChampion
-                        .getChampion(nameLabel.getText()));
-                aCompare.setVisible(true);
+                if (!(aChampion.getChampion(nameLabel.getText()) == null)) {
+                    ChampionCompare aCompare = new ChampionCompare(aChampion.getChampion(nameLabel.getText()));
+                    aCompare.setVisible(true);
+                }
             }
         });
 
         btnNewButton_1.setBounds(700, 256, 117, 33);
         champPanel.add(btnNewButton_1);
 
-		// Swapping visibilities
+        // Swapping visibilities
         InitialPanel.setVisible(true);
 
         damagePanel.setVisible(false);
@@ -645,7 +648,7 @@ public class InitialFrame {
 
             public void mouseClicked(MouseEvent e) {
 
-            	 // Swapping Visibilities 
+                // Swapping Visibilities 
                 InitialPanel.setVisible(true);
                 damagePanel.setVisible(false);
             }
@@ -658,7 +661,7 @@ public class InitialFrame {
         damagePanelBACKButton.setIcon(new ImageIcon(backimg));
         damagePanel.add(damagePanelBACKButton);
 
-                 		// This button will switch the panel from the damage to the champion panel
+        // This button will switch the panel from the damage to the champion panel
         JButton damagePanelCHAMPButton = new JButton("");
         damagePanelCHAMPButton.addMouseListener(new MouseAdapter() {
 
@@ -675,7 +678,7 @@ public class InitialFrame {
         damagePanelCHAMPButton.setIcon(new ImageIcon(champImg));
         damagePanel.add(damagePanelCHAMPButton);
 
-                         		 // This button will swap panels from the damage panel to the item panel
+        // This button will swap panels from the damage panel to the item panel
         JButton damagePanelITEMButton = new JButton("");
         damagePanelITEMButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -690,7 +693,7 @@ public class InitialFrame {
         damagePanelITEMButton.setIcon(new ImageIcon(itemImg));
         damagePanel.add(damagePanelITEMButton);
 
-                                 		 // This button will refresh the current damage panel
+        // This button will refresh the current damage panel
         JButton damagePanelDAMAGEButton = new JButton("");
         damagePanelDAMAGEButton.addMouseListener(new MouseAdapter() {
 
@@ -704,7 +707,7 @@ public class InitialFrame {
         damagePanelDAMAGEButton.setIcon(new ImageIcon(damageImg));
         damagePanel.add(damagePanelDAMAGEButton);
 
-                                         // Setting the TextFields for the first chosen champion and its given items
+        // Setting the TextFields for the first chosen champion and its given items
         // Also attaching said panels to the panels
         c1item1 = new JTextField();
         c1item1.setBounds(279, 293, 142, 33);
@@ -736,7 +739,7 @@ public class InitialFrame {
         c1item6.setBounds(431, 431, 142, 33);
         damagePanel.add(c1item6);
 
-                                         // Setting the  TextFields for the Second chosen champion and its given items
+        // Setting the  TextFields for the Second chosen champion and its given items
         // Also attaching said field to the panels
         c2item1 = new JTextField();
         c2item1.setColumns(10);
@@ -768,7 +771,7 @@ public class InitialFrame {
         c2item6.setBounds(841, 431, 142, 33);
         damagePanel.add(c2item6);
 
-                                         // Labels to indicate where the user has to input the items for champion 1
+        // Labels to indicate where the user has to input the items for champion 1
         JLabel lblItem = new JLabel("Item 1");
         lblItem.setBounds(279, 268, 46, 14);
         damagePanel.add(lblItem);
@@ -793,7 +796,7 @@ public class InitialFrame {
         lblItem_5.setBounds(431, 406, 46, 14);
         damagePanel.add(lblItem_5);
 
-                                         // Labels to indicate where the user has to input the items for champion 2
+        // Labels to indicate where the user has to input the items for champion 2
         JLabel label = new JLabel("Item 1");
         label.setBounds(689, 268, 46, 14);
         damagePanel.add(label);
@@ -818,7 +821,7 @@ public class InitialFrame {
         label_5.setBounds(841, 406, 46, 14);
         damagePanel.add(label_5);
 
-                                         // Indicates which champion was chosen by the user
+        // Indicates which champion was chosen by the user
         JLabel lblChampion = new JLabel("Champion 1");
         lblChampion.setBounds(279, 148, 100, 14);
         damagePanel.add(lblChampion);
@@ -828,7 +831,7 @@ public class InitialFrame {
         champOne.setBounds(279, 173, 142, 33);
         damagePanel.add(champOne);
 
-                                         // Indicates as to what the 2nd champion is 
+        // Indicates as to what the 2nd champion is 
         JLabel lblChampion_1 = new JLabel("Champion 2");
         lblChampion_1.setBounds(689, 148, 100, 14);
         damagePanel.add(lblChampion_1);
@@ -843,7 +846,7 @@ public class InitialFrame {
         btnGo.setBounds(1029, 352, 125, 53);
         damagePanel.add(btnGo);
 
-                                         // The field to choose what the champions lvls are 
+        // The field to choose what the champions lvls are 
         final JTextField champLevel = new JTextField();
         champLevel.setColumns(10);
         champLevel.setBounds(1029, 173, 125, 33);
@@ -858,50 +861,53 @@ public class InitialFrame {
         lblLevel.setBounds(1029, 148, 80, 14);
         damagePanel.add(lblLevel);
 
-                                         // This action listen for the go button that will calculate their damage
+        // This action listen for the go button that will calculate their damage
         btnGo.addMouseListener(new MouseAdapter() {
 
             public void mouseClicked(MouseEvent e) {
 
-                                        		 // Creating instance of the SearchItem and SearchChampion for the calculation
+                // Creating instance of the SearchItem and SearchChampion for the calculation
                 SearchItem searcher = new SearchItem();
                 SearchChampion seeker = new SearchChampion();
                 Calculator calc = new Calculator();
                 Champion chp1 = seeker.getChampion(champOne.getText());
                 Champion chp2 = seeker.getChampion(champTwo.getText());
 
-                                        		 // Receiving that item from the fields and placing them in an array
-                if(!((chp1 == null) || (chp2 == null))){
-                int lvl = Integer.parseInt(champLevel.getText());
-                Item[] oneItems = {searcher.getItem(c1item1.getText()), searcher.getItem(c1item2.getText()),
-                    searcher.getItem(c1item3.getText()), searcher.getItem(c1item4.getText()),
-                    searcher.getItem(c1item5.getText()), searcher.getItem(c1item6.getText())};
-                Item[] twoItems = {searcher.getItem(c2item1.getText()), searcher.getItem(c2item2.getText()),
-                    searcher.getItem(c2item3.getText()), searcher.getItem(c2item4.getText()),
-                    searcher.getItem(c2item5.getText()), searcher.getItem(c2item6.getText())};
-
-                                        		 // Adding all the AD
-                int ad = 0;
-                for (Item i : oneItems) {
-                    if (!(i == null)) {
-                        ad += i.getAD();
+                // Receiving that item from the fields and placing them in an array
+                if (!((chp1 == null) || (chp2 == null))) {
+                    int lvl = 1;
+                    if (!(champLevel.getText().equals(""))) {
+                        lvl = Integer.parseInt(champLevel.getText());
                     }
-                }
-                // Adding all the Armor
-                int ar = 0;
-                for (Item i : twoItems) {
-                    if (!(i == null)) {
-                        ar += i.getAR();
-                    }
-                }
+                    Item[] oneItems = {searcher.getItem(c1item1.getText()), searcher.getItem(c1item2.getText()),
+                        searcher.getItem(c1item3.getText()), searcher.getItem(c1item4.getText()),
+                        searcher.getItem(c1item5.getText()), searcher.getItem(c1item6.getText())};
+                    Item[] twoItems = {searcher.getItem(c2item1.getText()), searcher.getItem(c2item2.getText()),
+                        searcher.getItem(c2item3.getText()), searcher.getItem(c2item4.getText()),
+                        searcher.getItem(c2item5.getText()), searcher.getItem(c2item6.getText())};
 
-                                        		 // Receiving the lvl to caluclate the final stat
-                // Showing the damage champion 1 will do to champion 2 to the user through the GUI
-                ad += chp1.getAD(lvl);
-                ar += chp2.getAR(lvl);
-                int damage = Integer.parseInt(Math.round(calc.getPhysicalDamage(0, 1.0, ad, ar, 0, 0, 0, 0)) + "");
-                String line = chp1.getName() + " deals " + damage + " damage to " + chp2.getName() + " with each attack!";
-                printer.setText(line);
+                    // Adding all the AD
+                    int ad = 0;
+                    for (Item i : oneItems) {
+                        if (!(i == null)) {
+                            ad += i.getAD();
+                        }
+                    }
+                    // Adding all the Armor
+                    int ar = 0;
+                    for (Item i : twoItems) {
+                        if (!(i == null)) {
+                            ar += i.getAR();
+                        }
+                    }
+
+                    // Receiving the lvl to caluclate the final stat
+                    // Showing the damage champion 1 will do to champion 2 to the user through the GUI
+                    ad += chp1.getAD(lvl);
+                    ar += chp2.getAR(lvl);
+                    int damage = Integer.parseInt(Math.round(calc.getPhysicalDamage(0, 1.0, ad, ar, 0, 0, 0, 0)) + "");
+                    String line = chp1.getName() + " deals " + damage + " damage to " + chp2.getName() + " with each attack!";
+                    printer.setText(line);
                 }
 
                 c1item1.setText("");
@@ -918,7 +924,7 @@ public class InitialFrame {
                 c2item5.setText("");
                 c2item6.setText("");
 
-                                        		 //Refreshing the damage panel 
+                //Refreshing the damage panel 
                 damagePanel.setVisible(false);
                 damagePanel.setVisible(true);
             }
@@ -930,12 +936,12 @@ public class InitialFrame {
         champButton.setBounds(50, 350, 85, 85);
         InitialPanel.add(champButton);
 
-		// This button switches from the initial panel to the champion panel
+        // This button switches from the initial panel to the champion panel
         champButton.addMouseListener(new MouseAdapter() {
 
             public void mouseClicked(MouseEvent e) {
 
-				// Swapping visibilities
+                // Swapping visibilities
                 InitialPanel.setVisible(false);
                 champPanel.setVisible(true);
 
@@ -946,14 +952,14 @@ public class InitialFrame {
         champButton.setIcon(new ImageIcon(champImg));
         champButton.setForeground(Color.BLUE);
 
-		// This button switching from the inital panel to the damage panel
+        // This button switching from the inital panel to the damage panel
         JButton damageButton = new JButton("");
         damageButton.setBounds(50, 500, 85, 85);
         InitialPanel.add(damageButton);
         damageButton.addMouseListener(new MouseAdapter() {
 
             public void mouseClicked(MouseEvent e) {
-				// Swapping visibilities
+                // Swapping visibilities
 
                 InitialPanel.setVisible(false);
                 damagePanel.setVisible(true);
@@ -964,7 +970,7 @@ public class InitialFrame {
         damageButton.setIcon(new ImageIcon(damageImg));
         damageButton.setForeground(Color.BLUE);
 
-		// This button is responsible for changed from the initial panel to the item panel
+        // This button is responsible for changed from the initial panel to the item panel
         JButton itemButton = new JButton("");
         itemButton.setBounds(50, 200, 85, 85);
         InitialPanel.add(itemButton);
@@ -972,7 +978,7 @@ public class InitialFrame {
         itemButton.addMouseListener(new MouseAdapter() {
 
             public void mouseClicked(MouseEvent arg0) {
-				// Swapping visibilities
+                // Swapping visibilities
 
                 InitialPanel.setVisible(false);
                 itemPanel.setVisible(true);
@@ -988,7 +994,7 @@ public class InitialFrame {
         InitialPanel.add(banner);
         banner.setIcon(new ImageIcon(img));
 
-		// Setting the Txt Panels and fonts for each panel for the inital panel
+        // Setting the Txt Panels and fonts for each panel for the inital panel
         JTextPane txtpnChampionLibrary = new JTextPane();
         txtpnChampionLibrary.setBounds(200, 375, 120, 50);
         InitialPanel.add(txtpnChampionLibrary);
