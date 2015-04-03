@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Champion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Deliverable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">deliverable</a> &gt; <span class="el_source">Champion.java</span></div><h1>Champion.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package deliverable;
+
+import java.io.File;
+
+/**
+ *
+ * @author John
+ */
+public class Champion {
+
+    private String name;
+    private double HP, HG, AD, ADL, AS, ASL, AR, ARL, MR, MRL;
+    private int MS, Range;
+    
+<span class="fc" id="L20">    public Champion(){</span>
+        //default case in the event that no arguments are given
+<span class="fc" id="L22">        name = &quot;&quot;;</span>
+<span class="fc" id="L23">        HP = -1;</span>
+<span class="fc" id="L24">        HG = -1;</span>
+<span class="fc" id="L25">        AD = -1;</span>
+<span class="fc" id="L26">        ADL = 0;</span>
+<span class="fc" id="L27">        AS = -1;</span>
+<span class="fc" id="L28">        ASL = 0;</span>
+<span class="fc" id="L29">        AR = -1;</span>
+<span class="fc" id="L30">        ARL = 0;</span>
+<span class="fc" id="L31">        MR = -1;</span>
+<span class="fc" id="L32">        MRL = 0;</span>
+<span class="fc" id="L33">        MS = -1;</span>
+<span class="fc" id="L34">        Range = -1;</span>
+<span class="fc" id="L35">    }</span>
+
+<span class="fc" id="L37">    public Champion(String name, double HP, double HG, double AD, double ADL, double AS, double ASL, double AR, double ARL, double MR, double MRL, int MS, int Range) {</span>
+<span class="fc" id="L38">        this.name = name;</span>
+<span class="fc" id="L39">        this.HP = HP;</span>
+<span class="fc" id="L40">        this.HG = HG;</span>
+<span class="fc" id="L41">        this.AD = AD;</span>
+<span class="fc" id="L42">        this.ADL = ADL;</span>
+<span class="fc" id="L43">        this.AS = AS;</span>
+<span class="fc" id="L44">        this.ASL = ASL;</span>
+<span class="fc" id="L45">        this.AR = AR;</span>
+<span class="fc" id="L46">        this.ARL = ARL;</span>
+<span class="fc" id="L47">        this.MR = MR;</span>
+<span class="fc" id="L48">        this.MRL = MRL;</span>
+<span class="fc" id="L49">        this.MS = MS;</span>
+<span class="fc" id="L50">        this.Range = Range;</span>
+<span class="fc" id="L51">    }</span>
+
+    public String[] getStats() {
+<span class="fc" id="L54">        String returnArray[] = {name, getString(HP), getString(HG), getString(AD),</span>
+            getString(ADL), getString(AS), getString(ASL), getString(AR), getString(ARL),
+            getString(MR), getString(MRL), getString(MS), getString(Range)};
+
+<span class="fc" id="L58">        return returnArray;</span>
+    }
+
+    private String getString(double d) {
+<span class="fc" id="L62">        return d + &quot;&quot;;</span>
+    }
+
+    private String getString(int i) {
+<span class="fc" id="L66">        return i + &quot;&quot;;</span>
+    }
+    
+    public String picLocation(){
+<span class="fc" id="L70">        String temp = System.getProperty(&quot;user.dir&quot;) + File.separatorChar + &quot;bin&quot; + File.separatorChar + name + &quot;Square.png&quot;;</span>
+<span class="fc" id="L71">        return temp;</span>
+    }
+    
+    public String getName(){
+<span class="fc" id="L75">        return name;</span>
+    }
+    
+    public int getAD(int lvl){
+<span class="fc" id="L79">    	String effectiveAD = (Math.round(AD + (ADL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L80">    	return Integer.parseInt(effectiveAD);</span>
+    }
+    public int getAR(int lvl){
+<span class="fc" id="L83">    	String effectiveAR = (Math.round(AR + (ARL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L84">    	return Integer.parseInt(effectiveAR);</span>
+    }
+    public int getMR(int lvl){
+<span class="fc" id="L87">    	String effectiveMR = (Math.round(MR + (MRL*(lvl-1))) + &quot;&quot;);</span>
+<span class="fc" id="L88">    	return Integer.parseInt(effectiveMR);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SearchChampion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Deliverable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">deliverable</a> &gt; <span class="el_source">SearchChampion.java</span></div><h1>SearchChampion.java</h1><pre class="source lang-java linenums">package deliverable;
+
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class SearchChampion {
+
+<span class="fc" id="L12">    private char separator = File.separatorChar;</span>
+    private String championName;
+    private boolean championExists;
+    private Scanner championScanner;
+<span class="fc" id="L16">    private String filePath = System.getProperty(&quot;user.dir&quot;) + separator + &quot;src&quot; + separator + &quot;deliverable&quot; + separator + &quot;ChampionInfo.csv&quot;;</span>
+    private BufferedReader reader;
+<span class="fc" id="L18">    public String[][] myChampionArray = new String[123][19];</span>
+<span class="fc" id="L19">    private int rowCounter = 0;</span>
+<span class="fc" id="L20">    private String error = &quot;champion not found&quot;;</span>
+    private Champion[] champions;
+
+    //Checks the text file or array to see if the champion exists 
+<span class="fc" id="L24">    public SearchChampion() {</span>
+        try {
+            //instantiates the buffered reader
+<span class="fc" id="L27">            reader = new BufferedReader(new FileReader(filePath));</span>
+            String line;
+            //Loops through the text file until the line is empty, prints each line
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+                //Stores the champion info in an array
+<span class="fc" id="L32">                String[] InArray = line.split(&quot;,&quot;);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                for (int x = 0; x &lt; InArray.length; x++) {</span>
+<span class="fc" id="L34">                    myChampionArray[rowCounter][x] = InArray[x];</span>
+                }
+<span class="fc" id="L36">                rowCounter++;</span>
+<span class="fc" id="L37">            }</span>
+<span class="fc" id="L38">            champions = new Champion[myChampionArray.length-1];</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            for (int i = 0; i &lt; myChampionArray.length-1; i++) {	</span>
+<span class="fc" id="L40">                champions[i] = new Champion(myChampionArray[i][0], Double.parseDouble(myChampionArray[i][1]), Double.parseDouble(myChampionArray[i][2]),</span>
+                        Double.parseDouble(myChampionArray[i][9]), Double.parseDouble(myChampionArray[i][10]), Double.parseDouble(myChampionArray[i][11]),
+                        Double.parseDouble(myChampionArray[i][12]), Double.parseDouble(myChampionArray[i][13]), Double.parseDouble(myChampionArray[i][14]),
+                        Double.parseDouble(myChampionArray[i][15]), Double.parseDouble(myChampionArray[i][16]), Integer.parseInt(myChampionArray[i][17]),
+                        Integer.parseInt(myChampionArray[i][18]));
+            }
+
+            //Wrong filename exception
+<span class="nc" id="L48">        } catch (FileNotFoundException e) {</span>
+
+<span class="nc" id="L50">            e.printStackTrace();</span>
+            //ReadLine error catch
+<span class="nc" id="L52">        } catch (IOException e) {</span>
+
+<span class="nc" id="L54">            e.printStackTrace();</span>
+<span class="pc" id="L55">        }</span>
+
+<span class="fc" id="L57">    }</span>
+
+    //Returns the stored champion name to the user
+    public Champion getChampion(String checkText) {
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        for (Champion c : champions){</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            if(c.getName().equals(checkText)){</span>
+<span class="fc" id="L63">                return c;</span>
+            }
+        }
+<span class="nc" id="L66">        return null;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

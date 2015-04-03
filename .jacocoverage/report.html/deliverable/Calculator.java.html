@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Calculator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Deliverable&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">deliverable</a> &gt; <span class="el_source">Calculator.java</span></div><h1>Calculator.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package deliverable;
+
+<span class="fc" id="L9">public class Calculator {</span>
+    
+    public double getPhysicalDamage(int base, double ratio, int ad, int arm, int armpen, int armred, int armpenp, int armredp){
+        //ability  base damage, ability AD scaling, user's attack damage, target's armor
+        //user's flat armor pen, flat armor reduction, percent armor pen, percent armor reduction
+        
+        
+        //get the target's effective armor
+<span class="fc" id="L17">        double actualArmor = realArmor(arm, armpen, armred, armpenp, armredp);</span>
+        //get the damage multiplier based on their armor
+<span class="fc" id="L19">        double multiplier = getMultiplier(actualArmor);</span>
+        
+        //get the effective base damage based on the base damage plus the ratio times the user's attack damage
+<span class="fc" id="L22">        double realBase = (double) base + (ad * ((double) ratio));</span>
+        //multiply the effective base by the overall multiplier to get the actual damage
+<span class="fc" id="L24">        double totalDamage = realBase * multiplier;</span>
+        
+        
+<span class="fc" id="L27">        return totalDamage;</span>
+    }
+    
+        public double getMagicDamage(int base, double ratio, int ap, int mr, int magicPen, int magicRed, int magicPenP, int magicRedP){
+        //ability  base damage, ability AD scaling, user's attack damage, target's armor
+        //user's flat armor pen, flat armor reduction, percent armor pen, percent armor reduction
+        
+            
+        //get the target's effective magic resist
+<span class="fc" id="L36">        double actualMR = realMR(mr, magicPen, magicRed, magicPenP, magicRedP);</span>
+        //get the damage multiplier based on the target's MR
+<span class="fc" id="L38">        double multiplier = getMultiplier(actualMR);</span>
+        
+        //the effective base damage (base damage plus the ratio times the user's ability power
+<span class="fc" id="L41">        double realBase = (double) base + (ap * ((double) ratio));</span>
+        //multiply the effective base damage by the multiplier
+<span class="fc" id="L43">        double totalDamage = realBase * multiplier;</span>
+        
+        
+<span class="fc" id="L46">        return totalDamage;</span>
+    }
+    
+    private double realArmor(int arm, int armpen, int armred, int armpenp, int armredp){
+        double armor, armorPen, armorRed, armorPenP, armorRedP;
+<span class="fc" id="L51">        armor = arm;</span>
+<span class="fc" id="L52">        armorPen = armpen;</span>
+<span class="fc" id="L53">        armorRed = armred;</span>
+<span class="fc" id="L54">        armorPenP = armpenp;</span>
+<span class="fc" id="L55">        armorRedP = armredp;</span>
+        
+        //effective armor is calculated by subtracting flat armor reduction, then percentage armor reduction
+        //then percentage armor penetration, then flat armor penetration
+        
+<span class="fc" id="L60">        armor -= armorRed;</span>
+<span class="fc" id="L61">        armor *= ((100 - armorRedP)/100);</span>
+<span class="fc" id="L62">        armor *= ((100 - armorPenP)/100);</span>
+<span class="fc" id="L63">        armor -= armorPen;</span>
+        
+<span class="fc" id="L65">        return armor;</span>
+    }
+    
+    private double getMultiplier(double resist){
+        
+        //formulae for calculating the multiplier if the target's armor/MR is above or below zero
+        double multiplier;
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if(resist &lt; 0){</span>
+            //below zero
+<span class="nc" id="L74">            multiplier = (2 - (100/(100-resist)));</span>
+        }else{
+            //above zero
+<span class="fc" id="L77">            multiplier = (100/(100 + resist));</span>
+        }
+<span class="fc" id="L79">        return multiplier;</span>
+    }
+    
+        private double realMR(int mr, int magicPen, int magicRed, int magicPenP, int magicRedP){
+        double resist, realPen, realRed, realPenP, realRedP;
+<span class="fc" id="L84">        resist = mr;</span>
+<span class="fc" id="L85">        realPen = magicPen;</span>
+<span class="fc" id="L86">        realRed = magicRed;</span>
+<span class="fc" id="L87">        realPenP = magicPenP;</span>
+<span class="fc" id="L88">        realRedP = magicRedP;</span>
+        
+        //Magic reduction/penetration is calculated in the same manner as armor reduction/penetration
+        
+<span class="fc" id="L92">        resist -= realRed;</span>
+<span class="fc" id="L93">        resist *= ((100 - realRedP)/100);</span>
+<span class="fc" id="L94">        resist *= ((100 - realPenP)/100);</span>
+<span class="fc" id="L95">        resist -= realPen;</span>
+        
+<span class="fc" id="L97">        return resist;</span>
+    }  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>
