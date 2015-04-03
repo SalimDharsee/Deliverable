@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="John-PC" name="DeliverableTest" skipped="0" tests="6" time="0.347" timestamp="2015-04-03T04:40:11">
+<testsuite errors="0" failures="0" hostname="John-PC" name="DeliverableTest" skipped="0" tests="6" time="0.396" timestamp="2015-04-03T05:14:01">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -58,7 +58,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DeliverableTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\John\Documents\NetBeansProjects\Deliverable\build\test\results\TEST-DeliverableTest.xml crashfile=C:\Users\John\Documents\NetBeansProjects\Deliverable\build\junitvmwatcher2192428498720936457.properties propsfile=C:\Users\John\Documents\NetBeansProjects\Deliverable\build\junit5338281574716032999.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DeliverableTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\John\Documents\NetBeansProjects\Deliverable\build\test\results\TEST-DeliverableTest.xml crashfile=C:\Users\John\Documents\NetBeansProjects\Deliverable\build\junitvmwatcher6255305745886621521.properties propsfile=C:\Users\John\Documents\NetBeansProjects\Deliverable\build\junit3053732971718254974.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -256,6 +256,7 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/Deliverable.jar" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="Deliverable" />
     <property name="netbeans.hash.code" value="unique=NB_CND_EXTIDE_GFMOD_GROOVY_JAVA_JC_MOB_PHP_WEBCOMMON_WEBEE0876fdaae-78c2-4528-94b6-eaf82b4b3548_cf52023e-e6bf-47b4-ab13-b067b127af2b" />
@@ -285,8 +286,8 @@
     <property name="libs.cdc-agui-swing-layout.javadoc" value="" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="libs.javac-api.classpath" value="C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\nb-javac-api.jar" />
-    <property name="ant.file.Deliverable-impl" value="C:\Users\John\Documents\NetBeansProjects\Deliverable\nbproject\build-impl.xml" />
     <property name="libs.nokiaS80-ant-utils.classpath" value="C:\Program Files (x86)\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
+    <property name="ant.file.Deliverable-impl" value="C:\Users\John\Documents\NetBeansProjects\Deliverable\nbproject\build-impl.xml" />
     <property name="java.version" value="1.7.0_11" />
     <property name="run.jvmargs.ide" value="" />
     <property name="javadoc.version" value="false" />
@@ -302,8 +303,8 @@
     <property name="libs.eclipselinkmodelgen.javadoc" value="" />
     <property name="libs.metro.javadoc" value="C:\Program Files (x86)\NetBeans 7.4\enterprise\docs\metro-1.4-doc.zip" />
     <property name="libs.struts.maven-pom" value="" />
-    <property name="netbeans.home+have.tests" value="true" />
     <property name="ant.file.Deliverable" value="C:\Users\John\Documents\NetBeansProjects\Deliverable\build.xml" />
+    <property name="netbeans.home+have.tests" value="true" />
     <property name="annotation.processing.processor.options" value="" />
     <property name="libs.testng.maven-pom" value="" />
     <property name="libs.jaxb.src" value="" />
@@ -312,8 +313,8 @@
     <property name="libs.jaxb.classpath" value="C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\jaxb1-impl.jar;C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\activation.jar;C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
     <property name="do.depend" value="false" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
-    <property name="libs.swing-layout.classpath" value="C:\Program Files (x86)\NetBeans 7.4\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-3.2.3.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="C:\Program Files (x86)\NetBeans 7.4\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
     <property name="libs.restlib.src" value="" />
     <property name="javac.source" value="1.7" />
@@ -333,8 +334,8 @@
     <property name="built-jar.properties" value="C:\Users\John\Documents\NetBeansProjects\Deliverable\build\built-jar.properties" />
     <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
-    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="annotation.processing.enabled" value="true" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.jpa20-persistence.src" value="" />
     <property name="libs.jsf12.src" value="" />
@@ -367,8 +368,8 @@
     <property name="libs.junit_4.classpath" value="C:\Program Files (x86)\NetBeans 7.4\platform\modules\ext\junit-4.10.jar" />
     <property name="user.timezone" value="" />
     <property name="nb.junit.single" value="false" />
-    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="libs.ant-contrib.src" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="netbeans.dirs" value="C:\Program Files (x86)\NetBeans 7.4\nb;C:\Program Files (x86)\NetBeans 7.4\ergonomics;C:\Program Files (x86)\NetBeans 7.4\ide;C:\Program Files (x86)\NetBeans 7.4\extide;C:\Program Files (x86)\NetBeans 7.4\java;C:\Program Files (x86)\NetBeans 7.4\apisupport;C:\Program Files (x86)\NetBeans 7.4\webcommon;C:\Program Files (x86)\NetBeans 7.4\websvccommon;C:\Program Files (x86)\NetBeans 7.4\enterprise;C:\Program Files (x86)\NetBeans 7.4\mobility;C:\Program Files (x86)\NetBeans 7.4\profiler;C:\Program Files (x86)\NetBeans 7.4\python;C:\Program Files (x86)\NetBeans 7.4\php;C:\Program Files (x86)\NetBeans 7.4\identity;C:\Program Files (x86)\NetBeans 7.4\harness;C:\Program Files (x86)\NetBeans 7.4\cnd;C:\Program Files (x86)\NetBeans 7.4\dlight;C:\Program Files (x86)\NetBeans 7.4\groovy;C:\Program Files (x86)\NetBeans 7.4\extra;C:\Program Files (x86)\NetBeans 7.4\javacard;C:\Program Files (x86)\NetBeans 7.4\javafx" />
     <property name="libs.jsf20.javadoc" value="C:\Program Files (x86)\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.jstl.javadoc" value="C:\Program Files (x86)\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
@@ -405,37 +406,37 @@
     <property name="libs.spring-framework300.classpath" value="C:\Program Files (x86)\NetBeans 7.4\ide\modules\org-apache-commons-logging.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\cglib-2.2.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-aop-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-aspects-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-beans-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-build-src-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-context-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-context-support-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-core-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-expression-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-instrument-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-jdbc-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-jms-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-orm-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-oxm-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-struts-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-test-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-tx-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-web-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-3.2.3.RELEASE.jar;C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.3.RELEASE.jar" />
     <property name="libs.jsp-compiler.maven-pom" value="" />
     <property name="libs.spring-webmvc.maven-pom" value="" />
-    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\John\AppData\Roaming\NetBeans\7.4\modules\ext\jacocoagent.jar&quot;=includes=*:.settings.*:deliverable.*:deliverable..settings.*,destfile=&quot;C:\Users\John\Documents\NetBeansProjects\Deliverable\jacoco.exec-253216425490235&quot;" />
+    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\John\AppData\Roaming\NetBeans\7.4\modules\ext\jacocoagent.jar&quot;=includes=*:.settings.*:deliverable.*:deliverable..settings.*,destfile=&quot;C:\Users\John\Documents\NetBeansProjects\Deliverable\jacoco.exec-255245369215319&quot;" />
     <property name="libs.ejb3-persistence.classpath" value="C:\Program Files (x86)\NetBeans 7.4\java\modules\ext\hibernate\hibernate-jpa-2.0-api-1.0.1.Final.jar" />
     <property name="libs.hibernate-persistencemodelgen.javadoc" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
-    <property name="dist.archive.excludes" value="" />
     <property name="libs.spring-framework.javadoc" value="" />
+    <property name="dist.archive.excludes" value="" />
     <property name="libs.testng.javadoc" value="C:\Program Files (x86)\NetBeans 7.4\platform\docs\testng-6.8.1-javadoc.zip" />
-    <property name="user.script" value="" />
     <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files (x86)\NetBeans 7.4\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
+    <property name="user.script" value="" />
     <property name="libs.jsf12.maven-pom" value="" />
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
     <property name="main.class" value="deliverable.InitialFrame" />
-    <property name="build.dir" value="build" />
     <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files (x86)\NetBeans 7.4\extide\ant\lib\ant.jar;C:\Program Files (x86)\NetBeans 7.4\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files (x86)\NetBeans 7.4\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files (x86)\NetBeans 7.4\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files (x86)\NetBeans 7.4\enterprise\modules\ext\jstl-api.jar;C:\Program Files (x86)\NetBeans 7.4\extide\ant\lib\ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.1 compiled on May 15 2013" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="Cp1252" />
-    <property name="jdkBug6558476" value="false" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="javadoc.nonavbar" value="false" />
+    <property name="jdkBug6558476" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files (x86)\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="DeliverableTest" name="nullChamp" time="0.004" />
-  <testcase classname="DeliverableTest" name="testGUI" time="0.268" />
+  <testcase classname="DeliverableTest" name="normalChamp" time="0.012" />
+  <testcase classname="DeliverableTest" name="testGUI" time="0.282" />
+  <testcase classname="DeliverableTest" name="nullChamp" time="0.0" />
   <testcase classname="DeliverableTest" name="testCalc" time="0.001" />
-  <testcase classname="DeliverableTest" name="normalChamp" time="0.002" />
-  <testcase classname="DeliverableTest" name="testChampPopup" time="0.008" />
-  <testcase classname="DeliverableTest" name="testItemPopup" time="0.005" />
+  <testcase classname="DeliverableTest" name="testChampPopup" time="0.01" />
+  <testcase classname="DeliverableTest" name="testItemPopup" time="0.01" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

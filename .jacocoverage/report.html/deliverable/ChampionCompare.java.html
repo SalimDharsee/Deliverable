@@ -15,206 +15,227 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 
+@SuppressWarnings(&quot;serial&quot;)
 public class ChampionCompare extends JFrame {
 
+	// This classes goal is to take in and compute all the champion compare logic throw from the GUI
+	
+	// Initializes the variables that are used for the championCompare Interface 
+	
     private JPanel contentPane;
     private JTextField championSearch;
     private JTextField championLevel;
-<span class="fc" id="L23">    private JLabel champOne = new JLabel();</span>
-<span class="fc" id="L24">    private JLabel champTwo = new JLabel();</span>
-
+<span class="fc" id="L28">    private JLabel champOne = new JLabel();</span>
+<span class="fc" id="L29">    private JLabel champTwo = new JLabel();</span>
+    
     private Champion comparingTo;
-
-    /**
-     * Launch the application.
-     */
-    /* public static void main(String[] args) {
-     EventQueue.invokeLater(new Runnable() {
-     public void run() {
-     try {
-     ChampionCompare frame = new ChampionCompare();
-     frame.setVisible(true);
-     } catch (Exception e) {
-     e.printStackTrace();
-     }
-     }
-     });
-     }
-     */
-    /**
-     * Create the frame.
-     */
-<span class="fc" id="L47">    public ChampionCompare(Champion c) {</span>
-<span class="fc" id="L48">        comparingTo = c;</span>
-<span class="fc" id="L49">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="fc" id="L50">        setBounds(100, 100, 545, 332);</span>
-<span class="fc" id="L51">        contentPane = new JPanel();</span>
-<span class="fc" id="L52">        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
-<span class="fc" id="L53">        setContentPane(contentPane);</span>
-<span class="fc" id="L54">        contentPane.setLayout(null);</span>
-
-<span class="fc" id="L56">        JButton closeButton = new JButton(&quot;X&quot;);</span>
-<span class="fc" id="L57">        closeButton.addMouseListener(new MouseAdapter() {</span>
+   
+    // This constructor  method is used to create the instance of the interface that is displayed to the user
+<span class="fc" id="L34">    public ChampionCompare(Champion c) {</span>
+    	
+<span class="fc" id="L36">        comparingTo = c;</span>
+<span class="fc" id="L37">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+        
+        // Setting the size of the compare frame 
+        
+<span class="fc" id="L41">        setBounds(100, 100, 545, 332);</span>
+<span class="fc" id="L42">        contentPane = new JPanel();</span>
+<span class="fc" id="L43">        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L44">        setContentPane(contentPane);</span>
+<span class="fc" id="L45">        contentPane.setLayout(null);</span>
+        
+        // The action listener which is used by the button &quot;x&quot; to close the current frame 
+        
+<span class="fc" id="L49">        JButton closeButton = new JButton(&quot;X&quot;);</span>
+<span class="fc" id="L50">        closeButton.addMouseListener(new MouseAdapter() {</span>
             @Override
             public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L60">                dispose();</span>
-<span class="nc" id="L61">            }</span>
+<span class="nc" id="L53">                dispose();</span>
+<span class="nc" id="L54">            }</span>
 
         });
-<span class="fc" id="L64">        closeButton.setBounds(0, 0, 50, 22);</span>
-<span class="fc" id="L65">        contentPane.add(closeButton);</span>
+        
+        // Attaching the close button 
+<span class="fc" id="L59">        closeButton.setBounds(0, 0, 50, 22);</span>
+<span class="fc" id="L60">        contentPane.add(closeButton);</span>
 
-<span class="fc" id="L67">        championSearch = new JTextField();</span>
-<span class="fc" id="L68">        championSearch.setBounds(54, 0, 95, 22);</span>
-<span class="fc" id="L69">        contentPane.add(championSearch);</span>
-<span class="fc" id="L70">        championSearch.setColumns(10);</span>
+        // Creating text fields for the input of the champions name 
+<span class="fc" id="L63">        championSearch = new JTextField();</span>
+<span class="fc" id="L64">        championSearch.setBounds(54, 0, 95, 22);</span>
+<span class="fc" id="L65">        contentPane.add(championSearch);</span>
+<span class="fc" id="L66">        championSearch.setColumns(10);</span>
+        
+        // Creating a text field for the input of the champions level 
+<span class="fc" id="L69">        championLevel = new JTextField();</span>
+<span class="fc" id="L70">        championLevel.setBounds(156, 0, 90, 22);</span>
+<span class="fc" id="L71">        contentPane.add(championLevel);</span>
+<span class="fc" id="L72">        championLevel.setColumns(10);</span>
+        
+        //Attaching labels/headers to the champion compare frame  
+<span class="fc" id="L75">        JLabel champHeader = new JLabel(&quot;Champion Name&quot;);</span>
+<span class="fc" id="L76">        champHeader.setBounds(54, 10, 150, 50);</span>
+<span class="fc" id="L77">        contentPane.add(champHeader);</span>
+        
+      //Attaching labels/headers to the champion compare frame  
+<span class="fc" id="L80">        JLabel champLevel = new JLabel(&quot;Champion Level&quot;);</span>
+<span class="fc" id="L81">        champLevel.setBounds(155, 10, 150, 50);</span>
+<span class="fc" id="L82">        contentPane.add(champLevel);</span>
 
-<span class="fc" id="L72">        championLevel = new JTextField();</span>
-<span class="fc" id="L73">        championLevel.setBounds(156, 0, 90, 22);</span>
-<span class="fc" id="L74">        contentPane.add(championLevel);</span>
-<span class="fc" id="L75">        championLevel.setColumns(10);</span>
-
-<span class="fc" id="L77">        JLabel champHeader = new JLabel(&quot;Champion Name&quot;);</span>
-<span class="fc" id="L78">        champHeader.setBounds(54, 10, 150, 50);</span>
-<span class="fc" id="L79">        contentPane.add(champHeader);</span>
-
-<span class="fc" id="L81">        JLabel champLevel = new JLabel(&quot;Champion Level&quot;);</span>
-<span class="fc" id="L82">        champLevel.setBounds(155, 10, 150, 50);</span>
-<span class="fc" id="L83">        contentPane.add(champLevel);</span>
-
+      //Attaching labels/headers to the champion compare frame  
 <span class="fc" id="L85">        final JLabel championLabel = new JLabel(&quot;&quot;);</span>
 <span class="fc" id="L86">        championLabel.setBounds(360, 57, 103, 18);</span>
 <span class="fc" id="L87">        contentPane.add(championLabel);</span>
-
-<span class="fc" id="L89">        JButton searchButton = new JButton(&quot;GO&quot;);</span>
-<span class="fc" id="L90">        searchButton.addMouseListener(new MouseAdapter() {</span>
-<span class="fc" id="L91">            SearchChampion aChampion = new SearchChampion();</span>
-<span class="fc" id="L92">            JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
-
-            @Override
+        
+        // The button that is responsible for executing the comparison code 
+<span class="fc" id="L90">        JButton searchButton = new JButton(&quot;GO&quot;);</span>
+<span class="fc" id="L91">        searchButton.addMouseListener(new MouseAdapter() {</span>
+        	
+<span class="fc" id="L93">            SearchChampion aChampion = new SearchChampion();</span>
+<span class="fc" id="L94">            JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
+     
             public void mouseClicked(MouseEvent arg0) {
+            	// The actions performed after the button is clicked, mostly calls methods from the SearchChampion class
 
-<span class="nc" id="L97">                String checkText = championSearch.getText();</span>
-<span class="nc" id="L98">                int level = Integer.parseInt(championLevel.getText());</span>
-<span class="nc" id="L99">                championLevel.setText(&quot;&quot;);</span>
-<span class="nc" id="L100">                championSearch.setText(&quot;&quot;);</span>
-<span class="nc" id="L101">                Champion champ = aChampion.getChampion(checkText);</span>
-<span class="nc bnc" id="L102" title="All 2 branches missed.">                if (!(champ == null)) {</span>
-<span class="nc" id="L103">                    championLabel.setText(champ.getName());</span>
-<span class="nc" id="L104">                    pictureLabel.setBounds(360, 10, 174, 275);</span>
-<span class="nc" id="L105">                    pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
-<span class="nc" id="L106">                    contentPane.add(pictureLabel);</span>
-                }
-
+<span class="nc" id="L99">                String checkText = championSearch.getText();</span>
+<span class="nc" id="L100">                int level = Integer.parseInt(championLevel.getText());</span>
+<span class="nc" id="L101">                championLevel.setText(&quot;&quot;);</span>
+<span class="nc" id="L102">                championSearch.setText(&quot;&quot;);</span>
+<span class="nc" id="L103">                Champion champ = aChampion.getChampion(checkText);</span>
+<span class="nc" id="L104">                championLabel.setText(champ.getName());</span>
+<span class="nc" id="L105">                pictureLabel.setBounds(360, 10, 174, 275);</span>
+<span class="nc" id="L106">                pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
+<span class="nc" id="L107">                contentPane.add(pictureLabel);</span>
+                
 <span class="nc" id="L109">                compareChamps(champ, level);</span>
-
-<span class="nc" id="L111">                contentPane.setVisible(false);</span>
-<span class="nc" id="L112">                contentPane.setVisible(true);</span>
-<span class="nc" id="L113">            }</span>
+                
+                // Refreshing the frame so the picture is visible 
+                
+<span class="nc" id="L113">                contentPane.setVisible(false);</span>
+<span class="nc" id="L114">                contentPane.setVisible(true);</span>
+<span class="nc" id="L115">            }</span>
         });
-<span class="fc" id="L115">        searchButton.setBounds(260, 0, 60, 22);</span>
-<span class="fc" id="L116">        contentPane.add(searchButton);</span>
+        
+        // Setting the parameters for the buttons and attaching it to the frame 
+<span class="fc" id="L119">        searchButton.setBounds(260, 0, 60, 22);</span>
+<span class="fc" id="L120">        contentPane.add(searchButton);</span>
 
-<span class="fc" id="L118">        contentPane.setVisible(false);</span>
-<span class="fc" id="L119">        contentPane.setVisible(true);</span>
-<span class="fc" id="L120">    }</span>
-
-    private void compareChamps(Champion champ, int lvl) {
-<span class="nc" id="L123">        champOne.setText(champ.getName());</span>
-<span class="nc" id="L124">        champTwo.setText(comparingTo.getName());</span>
-
-<span class="nc" id="L126">        JLabel HP = new JLabel(&quot;HP&quot;);</span>
-<span class="nc" id="L127">        JLabel AD = new JLabel(&quot;AD&quot;);</span>
-<span class="nc" id="L128">        JLabel AS = new JLabel(&quot;AS&quot;);</span>
-<span class="nc" id="L129">        JLabel AR = new JLabel(&quot;AR&quot;);</span>
-<span class="nc" id="L130">        JLabel MR = new JLabel(&quot;MR&quot;);</span>
-<span class="nc" id="L131">        JLabel MS = new JLabel(&quot;MS&quot;);</span>
-<span class="nc" id="L132">        JLabel R = new JLabel(&quot;R&quot;);</span>
-
-<span class="nc" id="L134">        String[] tempOne = champ.getStats();</span>
-<span class="nc" id="L135">        String[] tempTwo = comparingTo.getStats();</span>
-
-<span class="nc" id="L137">        double[] statsOne = new double[tempOne.length - 1];</span>
-<span class="nc" id="L138">        double[] statsTwo = new double[tempTwo.length - 1];</span>
-
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        for (int i = 1; i &lt; tempOne.length; i++) {</span>
-<span class="nc" id="L141">            statsOne[i - 1] = Double.parseDouble(tempOne[i]);</span>
+     // Refreshing the frame
+<span class="fc" id="L123">        contentPane.setVisible(false);</span>
+<span class="fc" id="L124">        contentPane.setVisible(true);</span>
+<span class="fc" id="L125">    }</span>
+    
+    // This method contains most of the logic that is being used when we are comparing champions to one another 
+    
+    private void compareChamps(Champion champ, int lvl){
+    	// getting the two champion names from the program 
+<span class="nc" id="L131">        champOne.setText(champ.getName());</span>
+<span class="nc" id="L132">        champTwo.setText(comparingTo.getName());</span>
+        
+        // Setting up the lables 
+<span class="nc" id="L135">        JLabel HP = new JLabel(&quot;HP&quot;);</span>
+<span class="nc" id="L136">        JLabel AD = new JLabel(&quot;AD&quot;);</span>
+<span class="nc" id="L137">        JLabel AS = new JLabel(&quot;AS&quot;);</span>
+<span class="nc" id="L138">        JLabel AR = new JLabel(&quot;AR&quot;);</span>
+<span class="nc" id="L139">        JLabel MR = new JLabel(&quot;MR&quot;);</span>
+<span class="nc" id="L140">        JLabel MS = new JLabel(&quot;MS&quot;);</span>
+<span class="nc" id="L141">        JLabel R = new JLabel(&quot;R&quot;);</span>
+        
+        // Getting the stats from the accessor methods 
+<span class="nc" id="L144">        String[] tempOne = champ.getStats();</span>
+<span class="nc" id="L145">        String[] tempTwo = comparingTo.getStats();</span>
+        
+        // Removing the Champion name from the array so we only have to deal with the doubles 
+<span class="nc" id="L148">        double[] statsOne = new double[tempOne.length-1];</span>
+<span class="nc" id="L149">        double[] statsTwo = new double[tempTwo.length-1];</span>
+        
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        for(int i = 1; i &lt; tempOne.length; i++){</span>
+<span class="nc" id="L152">            statsOne[i-1] = Double.parseDouble(tempOne[i]);</span>
         }
-<span class="nc bnc" id="L143" title="All 2 branches missed.">        for (int i = 1; i &lt; tempTwo.length; i++) {</span>
-<span class="nc" id="L144">            statsTwo[i - 1] = Double.parseDouble(tempTwo[i]);</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        for(int i = 1; i &lt; tempTwo.length; i++){</span>
+<span class="nc" id="L155">            statsTwo[i-1] = Double.parseDouble(tempTwo[i]);</span>
         }
-
-<span class="nc" id="L147">        String tempAS1 = (statsOne[4] * (((statsOne[5] * lvl) + 100) / 100)) + &quot;&quot;;</span>
-<span class="nc" id="L148">        String tempAS2 = (statsTwo[4] * (((statsTwo[5] * lvl) + 100) / 100)) + &quot;&quot;;</span>
-<span class="nc" id="L149">        tempAS1 = tempAS1.substring(0, 5);</span>
-<span class="nc" id="L150">        tempAS2 = tempAS2.substring(0, 5);</span>
-
-<span class="nc" id="L152">        JTextField HP1 = new JTextField((Math.round((statsOne[0]) + ((statsOne[1] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L153">        JTextField AD1 = new JTextField((Math.round((statsOne[2]) + ((statsOne[3] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L154">        JTextField AS1 = new JTextField(tempAS1);</span>
-<span class="nc" id="L155">        JTextField AR1 = new JTextField((Math.round((statsOne[6]) + ((statsOne[7] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L156">        JTextField MR1 = new JTextField((Math.round((statsOne[8]) + ((statsOne[9] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L157">        JTextField MS1 = new JTextField(Math.round(statsOne[10]) + &quot;&quot;);</span>
-<span class="nc" id="L158">        JTextField R1 = new JTextField(Math.round(statsOne[11]) + &quot;&quot;);</span>
-
-<span class="nc" id="L160">        JTextField HP2 = new JTextField((Math.round((statsTwo[0]) + ((statsTwo[1] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L161">        JTextField AD2 = new JTextField((Math.round((statsTwo[2]) + ((statsTwo[3] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L162">        JTextField AS2 = new JTextField(tempAS2);</span>
-<span class="nc" id="L163">        JTextField AR2 = new JTextField((Math.round((statsTwo[6]) + ((statsTwo[7] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L164">        JTextField MR2 = new JTextField((Math.round((statsTwo[8]) + ((statsTwo[9] * (lvl - 1))))) + &quot;&quot;);</span>
-<span class="nc" id="L165">        JTextField MS2 = new JTextField(Math.round(statsTwo[10]) + &quot;&quot;);</span>
-<span class="nc" id="L166">        JTextField R2 = new JTextField(Math.round(statsTwo[11]) + &quot;&quot;);</span>
-
-<span class="nc" id="L168">        champOne.setBounds(75, 50, 50, 20);</span>
-<span class="nc" id="L169">        contentPane.add(champOne);</span>
-<span class="nc" id="L170">        champTwo.setBounds(175, 50, 50, 20);</span>
-<span class="nc" id="L171">        contentPane.add(champTwo);</span>
-
-<span class="nc" id="L173">        HP1.setBounds(75, 70, 50, 20);</span>
-<span class="nc" id="L174">        contentPane.add(HP1);</span>
-<span class="nc" id="L175">        HP2.setBounds(175, 70, 50, 20);</span>
-<span class="nc" id="L176">        contentPane.add(HP2);</span>
-<span class="nc" id="L177">        HP.setBounds(20, 75, 30, 10);</span>
-<span class="nc" id="L178">        contentPane.add(HP);</span>
-<span class="nc" id="L179">        AD1.setBounds(75, 90, 50, 20);</span>
-<span class="nc" id="L180">        contentPane.add(AD1);</span>
-<span class="nc" id="L181">        AD2.setBounds(175, 90, 50, 20);</span>
-<span class="nc" id="L182">        contentPane.add(AD2);</span>
-<span class="nc" id="L183">        AD.setBounds(20, 90, 50, 20);</span>
-<span class="nc" id="L184">        contentPane.add(AD);</span>
-<span class="nc" id="L185">        AS1.setBounds(75, 110, 50, 20);</span>
-<span class="nc" id="L186">        contentPane.add(AS1);</span>
-<span class="nc" id="L187">        AS2.setBounds(175, 110, 50, 20);</span>
-<span class="nc" id="L188">        contentPane.add(AS2);</span>
-<span class="nc" id="L189">        AS.setBounds(20, 110, 50, 20);</span>
-<span class="nc" id="L190">        contentPane.add(AS);</span>
-<span class="nc" id="L191">        AR1.setBounds(75, 130, 50, 20);</span>
-<span class="nc" id="L192">        contentPane.add(AR1);</span>
-<span class="nc" id="L193">        AR2.setBounds(175, 130, 50, 20);</span>
-<span class="nc" id="L194">        contentPane.add(AR2);</span>
-<span class="nc" id="L195">        AR.setBounds(20, 130, 50, 20);</span>
-<span class="nc" id="L196">        contentPane.add(AR);</span>
-<span class="nc" id="L197">        MR1.setBounds(75, 150, 50, 20);</span>
-<span class="nc" id="L198">        contentPane.add(MR1);</span>
-<span class="nc" id="L199">        MR2.setBounds(175, 150, 50, 20);</span>
-<span class="nc" id="L200">        contentPane.add(MR2);</span>
-<span class="nc" id="L201">        MR.setBounds(20, 150, 50, 20);</span>
-<span class="nc" id="L202">        contentPane.add(MR);</span>
-<span class="nc" id="L203">        MS1.setBounds(75, 170, 50, 20);</span>
-<span class="nc" id="L204">        contentPane.add(MS1);</span>
-<span class="nc" id="L205">        MS2.setBounds(175, 170, 50, 20);</span>
-<span class="nc" id="L206">        contentPane.add(MS2);</span>
-<span class="nc" id="L207">        MS.setBounds(20, 170, 50, 20);</span>
-<span class="nc" id="L208">        contentPane.add(MS);</span>
-<span class="nc" id="L209">        R1.setBounds(75, 190, 50, 20);</span>
-<span class="nc" id="L210">        contentPane.add(R1);</span>
-<span class="nc" id="L211">        R2.setBounds(175, 190, 50, 20);</span>
-<span class="nc" id="L212">        contentPane.add(R2);</span>
-<span class="nc" id="L213">        R.setBounds(20, 190, 50, 20);</span>
-<span class="nc" id="L214">        contentPane.add(R);</span>
-
-<span class="nc" id="L216">        contentPane.setVisible(false);</span>
-<span class="nc" id="L217">        contentPane.setVisible(true);</span>
-<span class="nc" id="L218">    }</span>
+        
+        // The logic for the champion attack speed, since it changes based on a percent instead of a base amout 
+        
+<span class="nc" id="L160">        String tempAS1 = (statsOne[4]*(((statsOne[5]*lvl) + 100)/100)) + &quot;&quot;;</span>
+<span class="nc" id="L161">        String tempAS2 = (statsTwo[4]*(((statsTwo[5]*lvl) + 100)/100)) + &quot;&quot;;</span>
+<span class="nc" id="L162">        tempAS1 = tempAS1.substring(0, 5);</span>
+<span class="nc" id="L163">        tempAS2 = tempAS2.substring(0, 5);</span>
+        
+        // The rest of the stats that use base amounts or the stats that do note change
+        // The stats are changed based on the champion level that was given by the user
+        // For Champion 1 
+<span class="nc" id="L168">        JTextField HP1 = new JTextField((Math.round((statsOne[0]) + ((statsOne[1]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L169">        JTextField AD1 = new JTextField((Math.round((statsOne[2]) + ((statsOne[3]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L170">        JTextField AS1 = new JTextField(tempAS1);</span>
+<span class="nc" id="L171">        JTextField AR1 = new JTextField((Math.round((statsOne[6]) + ((statsOne[7]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L172">        JTextField MR1 = new JTextField((Math.round((statsOne[8]) + ((statsOne[9]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L173">        JTextField MS1 = new JTextField(Math.round(statsOne[10]) + &quot;&quot;);</span>
+<span class="nc" id="L174">        JTextField R1 = new JTextField(Math.round(statsOne[11]) + &quot;&quot;);</span>
+        
+        // For champion 2 
+<span class="nc" id="L177">        JTextField HP2 = new JTextField((Math.round((statsTwo[0]) + ((statsTwo[1]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L178">        JTextField AD2 = new JTextField((Math.round((statsTwo[2]) + ((statsTwo[3]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L179">        JTextField AS2 = new JTextField(tempAS2);</span>
+<span class="nc" id="L180">        JTextField AR2 = new JTextField((Math.round((statsTwo[6]) + ((statsTwo[7]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L181">        JTextField MR2 = new JTextField((Math.round((statsTwo[8]) + ((statsTwo[9]*(lvl-1))))) + &quot;&quot;);</span>
+<span class="nc" id="L182">        JTextField MS2 = new JTextField(Math.round(statsTwo[10]) + &quot;&quot;);</span>
+<span class="nc" id="L183">        JTextField R2 = new JTextField(Math.round(statsTwo[11]) + &quot;&quot;);</span>
+        
+        // These are just setting the parameter and bounds for the fields, labels and buttons 
+<span class="nc" id="L186">        champOne.setBounds(75, 50, 50, 20);</span>
+<span class="nc" id="L187">        contentPane.add(champOne);</span>
+<span class="nc" id="L188">        champTwo.setBounds(175, 50, 50, 20);</span>
+<span class="nc" id="L189">        contentPane.add(champTwo);</span>
+        
+     // These are just setting the parameter and bounds for the fields, labels and buttons 
+<span class="nc" id="L192">        HP1.setBounds(75, 70, 50, 20);</span>
+<span class="nc" id="L193">        contentPane.add(HP1);</span>
+<span class="nc" id="L194">        HP2.setBounds(175, 70, 50, 20);</span>
+<span class="nc" id="L195">        contentPane.add(HP2);</span>
+<span class="nc" id="L196">        HP.setBounds(20, 75, 30, 10);</span>
+<span class="nc" id="L197">        contentPane.add(HP);</span>
+<span class="nc" id="L198">        AD1.setBounds(75, 90, 50, 20);</span>
+<span class="nc" id="L199">        contentPane.add(AD1);</span>
+<span class="nc" id="L200">        AD2.setBounds(175, 90, 50, 20);</span>
+<span class="nc" id="L201">        contentPane.add(AD2);</span>
+<span class="nc" id="L202">        AD.setBounds(20, 90, 50, 20);</span>
+<span class="nc" id="L203">        contentPane.add(AD);</span>
+<span class="nc" id="L204">        AS1.setBounds(75, 110, 50, 20);</span>
+<span class="nc" id="L205">        contentPane.add(AS1);</span>
+<span class="nc" id="L206">        AS2.setBounds(175, 110, 50, 20);</span>
+<span class="nc" id="L207">        contentPane.add(AS2);</span>
+<span class="nc" id="L208">        AS.setBounds(20, 110, 50, 20);</span>
+<span class="nc" id="L209">        contentPane.add(AS);</span>
+<span class="nc" id="L210">        AR1.setBounds(75, 130, 50, 20);</span>
+<span class="nc" id="L211">        contentPane.add(AR1);</span>
+<span class="nc" id="L212">        AR2.setBounds(175, 130, 50, 20);</span>
+<span class="nc" id="L213">        contentPane.add(AR2);</span>
+<span class="nc" id="L214">        AR.setBounds(20, 130, 50, 20);</span>
+<span class="nc" id="L215">        contentPane.add(AR);</span>
+<span class="nc" id="L216">        MR1.setBounds(75, 150, 50, 20);</span>
+<span class="nc" id="L217">        contentPane.add(MR1);</span>
+<span class="nc" id="L218">        MR2.setBounds(175, 150, 50, 20);</span>
+<span class="nc" id="L219">        contentPane.add(MR2);</span>
+<span class="nc" id="L220">        MR.setBounds(20, 150, 50, 20);</span>
+<span class="nc" id="L221">        contentPane.add(MR);</span>
+<span class="nc" id="L222">        MS1.setBounds(75, 170, 50, 20);</span>
+<span class="nc" id="L223">        contentPane.add(MS1);</span>
+<span class="nc" id="L224">        MS2.setBounds(175, 170, 50, 20);</span>
+<span class="nc" id="L225">        contentPane.add(MS2);</span>
+<span class="nc" id="L226">        MS.setBounds(20, 170, 50, 20);</span>
+<span class="nc" id="L227">        contentPane.add(MS);</span>
+<span class="nc" id="L228">        R1.setBounds(75, 190, 50, 20);</span>
+<span class="nc" id="L229">        contentPane.add(R1);</span>
+<span class="nc" id="L230">        R2.setBounds(175, 190, 50, 20);</span>
+<span class="nc" id="L231">        contentPane.add(R2);</span>
+<span class="nc" id="L232">        R.setBounds(20, 190, 50, 20);</span>
+<span class="nc" id="L233">        contentPane.add(R);</span>
+        
+        
+        // Refreshes the frame 
+<span class="nc" id="L237">        contentPane.setVisible(false);</span>
+<span class="nc" id="L238">        contentPane.setVisible(true);</span>
+<span class="nc" id="L239">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

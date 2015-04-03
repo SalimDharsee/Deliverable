@@ -16,160 +16,194 @@ import javax.swing.ImageIcon;
 
 public class ItemCompare extends JFrame {
 
-    private JPanel contentPane;
-    private JTextField ItemSearch;
-    private JTextField ItemLevel;
-<span class="fc" id="L22">    private JLabel champOne = new JLabel();</span>
-<span class="fc" id="L23">    private JLabel champTwo = new JLabel();</span>
+	// This class is responsible for creating the ItemCompare frame, seperate from the initial frame
+	// It is also used to complete the logic for given compare
+	
+	
+	private JPanel contentPane;
+	private JTextField ItemSearch;
+	private JTextField ItemLevel;
+<span class="fc" id="L26">	private JLabel champOne = new JLabel();</span>
+<span class="fc" id="L27">	private JLabel champTwo = new JLabel();</span>
 
-    private final Item comparingTo;
+	private Item comparingTo;
 
-    /**
-     * Launch the application.
-     * @param c
-     */
-    /*
-     * public static void main(String[] args) { EventQueue.invokeLater(new
-     * Runnable() { public void run() { try { ItemCompare frame = new
-     * ItemCompare(); frame.setVisible(true); } catch (Exception e) {
-     * e.printStackTrace(); } } }); }
-     */
-<span class="fc" id="L37">    public ItemCompare(Item c) {</span>
-<span class="fc" id="L38">        comparingTo = c;</span>
-<span class="fc" id="L39">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="fc" id="L40">        setBounds(100, 100, 545, 332);</span>
-<span class="fc" id="L41">        contentPane = new JPanel();</span>
-<span class="fc" id="L42">        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
-<span class="fc" id="L43">        setContentPane(contentPane);</span>
-<span class="fc" id="L44">        contentPane.setLayout(null);</span>
 
-<span class="fc" id="L46">        JButton closeButton = new JButton(&quot;X&quot;);</span>
-<span class="fc" id="L47">        closeButton.addMouseListener(new MouseAdapter() {</span>
-            @Override
-            public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L50">                dispose();</span>
-<span class="nc" id="L51">            }</span>
+	// Constructor method to setup the dimension of the frame and the layout.. etc..
+	
+<span class="fc" id="L34">	public ItemCompare(Item c) {</span>
+<span class="fc" id="L35">		comparingTo = c;</span>
+<span class="fc" id="L36">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L37">		setBounds(100, 100, 545, 332);</span>
+<span class="fc" id="L38">		contentPane = new JPanel();</span>
+<span class="fc" id="L39">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L40">		setContentPane(contentPane);</span>
+<span class="fc" id="L41">		contentPane.setLayout(null);</span>
 
-        });
-<span class="fc" id="L54">        closeButton.setBounds(0, 0, 50, 22);</span>
-<span class="fc" id="L55">        contentPane.add(closeButton);</span>
+		// This button is responsible for closing the ItemCompar frame
+		
+<span class="fc" id="L45">		JButton closeButton = new JButton(&quot;X&quot;);</span>
+<span class="fc" id="L46">		closeButton.addMouseListener(new MouseAdapter() {</span>
+			
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L49">				dispose();</span>
+				// Closes said frame
+				
+<span class="nc" id="L52">			}</span>
 
-<span class="fc" id="L57">        ItemSearch = new JTextField();</span>
-<span class="fc" id="L58">        ItemSearch.setBounds(54, 0, 95, 22);</span>
-<span class="fc" id="L59">        contentPane.add(ItemSearch);</span>
-<span class="fc" id="L60">        ItemSearch.setColumns(10);</span>
+		});
+		
+		// These are just attaching field and to the frame, attaching buttons to the frame
+		
+<span class="fc" id="L58">		closeButton.setBounds(0, 0, 50, 22);</span>
+<span class="fc" id="L59">		contentPane.add(closeButton);</span>
 
-<span class="fc" id="L62">        JLabel champHeader = new JLabel(&quot;Item Name&quot;);</span>
-<span class="fc" id="L63">        champHeader.setBounds(54, 10, 150, 50);</span>
-<span class="fc" id="L64">        contentPane.add(champHeader);</span>
+<span class="fc" id="L61">		ItemSearch = new JTextField();</span>
+<span class="fc" id="L62">		ItemSearch.setBounds(54, 0, 95, 22);</span>
+<span class="fc" id="L63">		contentPane.add(ItemSearch);</span>
+<span class="fc" id="L64">		ItemSearch.setColumns(10);</span>
 
-<span class="fc" id="L66">        final JLabel ItemLabel = new JLabel(&quot;&quot;);</span>
-<span class="fc" id="L67">        ItemLabel.setBounds(360, 57, 103, 18);</span>
-<span class="fc" id="L68">        contentPane.add(ItemLabel);</span>
+<span class="fc" id="L66">		JLabel champHeader = new JLabel(&quot;Item Name&quot;);</span>
+<span class="fc" id="L67">		champHeader.setBounds(54, 10, 150, 50);</span>
+<span class="fc" id="L68">		contentPane.add(champHeader);</span>
 
-<span class="fc" id="L70">        JButton searchButton = new JButton(&quot;GO&quot;);</span>
-<span class="fc" id="L71">        searchButton.addMouseListener(new MouseAdapter() {</span>
-<span class="fc" id="L72">            SearchItem aItem = new SearchItem();</span>
-<span class="fc" id="L73">            JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L70">		final JLabel ItemLabel = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L71">		ItemLabel.setBounds(360, 57, 103, 18);</span>
+<span class="fc" id="L72">		contentPane.add(ItemLabel);</span>
+		
+		// The search button that will actually call the executable functions so that we can compare the items
+		
+<span class="fc" id="L76">		JButton searchButton = new JButton(&quot;GO&quot;);</span>
+<span class="fc" id="L77">		searchButton.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L78">			SearchItem aItem = new SearchItem();</span>
+<span class="fc" id="L79">			JLabel pictureLabel = new JLabel(&quot;&quot;);</span>
 
-            @Override
-            public void mouseClicked(MouseEvent arg0) {
+			
+			public void mouseClicked(MouseEvent arg0) {
+				
+				// Receiving the input from the GUI
+				
+<span class="nc" id="L86">				String checkText = ItemSearch.getText();</span>
+<span class="nc" id="L87">				ItemSearch.setText(&quot;&quot;);</span>
+<span class="nc" id="L88">				Item champ = aItem.getItem(checkText);</span>
+				
+				// A check to make sure that a null is not thrown at us
+				
+<span class="nc bnc" id="L92" title="All 2 branches missed.">				if (!(champ == null)) {</span>
+					
+					// Display the item and its image on the GUI
+					
+<span class="nc" id="L96">					ItemLabel.setText(champ.getName());</span>
+<span class="nc" id="L97">					pictureLabel.setBounds(360, 10, 174, 275);</span>
+<span class="nc" id="L98">					pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
+<span class="nc" id="L99">					contentPane.add(pictureLabel);</span>
 
-<span class="nc" id="L78">                String checkText = ItemSearch.getText();</span>
-<span class="nc" id="L79">                ItemSearch.setText(&quot;&quot;);</span>
-<span class="nc" id="L80">                Item champ = aItem.getItem(checkText);</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">                if (!(champ == null)) {</span>
-<span class="nc" id="L82">                    ItemLabel.setText(champ.getName());</span>
-<span class="nc" id="L83">                    pictureLabel.setBounds(360, 10, 174, 275);</span>
-<span class="nc" id="L84">                    pictureLabel.setIcon(new ImageIcon(champ.picLocation()));</span>
-<span class="nc" id="L85">                    contentPane.add(pictureLabel);</span>
+<span class="nc" id="L101">					compareChamps(champ);</span>
+				}
+				
+				// Refreshing the frame
+				
+<span class="nc" id="L106">				contentPane.setVisible(false);</span>
+<span class="nc" id="L107">				contentPane.setVisible(true);</span>
+<span class="nc" id="L108">			}</span>
+		});
+<span class="fc" id="L110">		searchButton.setBounds(260, 0, 60, 22);</span>
+<span class="fc" id="L111">		contentPane.add(searchButton);</span>
+		
+		// Refreshing the frame
+		
+<span class="fc" id="L115">		contentPane.setVisible(false);</span>
+<span class="fc" id="L116">		contentPane.setVisible(true);</span>
+<span class="fc" id="L117">	}</span>
 
-<span class="nc" id="L87">                    compareChamps(champ);</span>
-                }
+	// The method that will actually compare the champion data
+	
+	private void compareChamps(Item champ) {
+		
+		// Receive the two champions from the GUi
+		
+<span class="nc" id="L125">		champOne.setText(champ.getName());</span>
+<span class="nc" id="L126">		champTwo.setText(comparingTo.getName());</span>
+		
+		// Setup the variables that we will be looking at
+		
+<span class="nc" id="L130">		JLabel HP = new JLabel(&quot;HP&quot;);</span>
+<span class="nc" id="L131">		JLabel AD = new JLabel(&quot;AD&quot;);</span>
+<span class="nc" id="L132">		JLabel AS = new JLabel(&quot;AS&quot;);</span>
+<span class="nc" id="L133">		JLabel AR = new JLabel(&quot;AR&quot;);</span>
+<span class="nc" id="L134">		JLabel MR = new JLabel(&quot;MR&quot;);</span>
+<span class="nc" id="L135">		JLabel MS = new JLabel(&quot;MS&quot;);</span>
+		
+		// Getting each of the champions stats and storing them in two seperate arrays
+		
+<span class="nc" id="L139">		String[] tempOne = champ.getStats();</span>
+<span class="nc" id="L140">		String[] tempTwo = comparingTo.getStats();</span>
+		
+		// Allocating the proper data to each of the follow varaibles created earlier
+		
 
-<span class="nc" id="L90">                contentPane.setVisible(false);</span>
-<span class="nc" id="L91">                contentPane.setVisible(true);</span>
-<span class="nc" id="L92">            }</span>
-        });
-<span class="fc" id="L94">        searchButton.setBounds(260, 0, 60, 22);</span>
-<span class="fc" id="L95">        contentPane.add(searchButton);</span>
+<span class="nc" id="L145">		JTextField HP1 = new JTextField(Math.round(Double.parseDouble(tempOne[2])) + &quot;&quot;);</span>
+<span class="nc" id="L146">		JTextField AD1 = new JTextField(Math.round(Double.parseDouble(tempOne[3])) + &quot;&quot;);</span>
+<span class="nc" id="L147">		JTextField AS1 = new JTextField(Math.round(Double.parseDouble(tempOne[5])) + &quot;&quot;);</span>
+<span class="nc" id="L148">		JTextField AR1 = new JTextField(Math.round(Double.parseDouble(tempOne[7])) + &quot;&quot;);</span>
+<span class="nc" id="L149">		JTextField MR1 = new JTextField(Math.round(Double.parseDouble(tempOne[9])) + &quot;&quot;);</span>
+<span class="nc" id="L150">		JTextField MS1 = new JTextField(Math.round(Double.parseDouble(tempOne[13])) + &quot;&quot;);</span>
 
-<span class="fc" id="L97">        contentPane.setVisible(false);</span>
-<span class="fc" id="L98">        contentPane.setVisible(true);</span>
-<span class="fc" id="L99">    }</span>
+<span class="nc" id="L152">		JTextField HP2 = new JTextField(Math.round(Double.parseDouble(tempTwo[2])) + &quot;&quot;);</span>
+<span class="nc" id="L153">		JTextField AD2 = new JTextField(Math.round(Double.parseDouble(tempTwo[3])) + &quot;&quot;);</span>
+<span class="nc" id="L154">		JTextField AS2 = new JTextField(Math.round(Double.parseDouble(tempTwo[5])) + &quot;&quot;);</span>
+<span class="nc" id="L155">		JTextField AR2 = new JTextField(Math.round(Double.parseDouble(tempTwo[7])) + &quot;&quot;);</span>
+<span class="nc" id="L156">		JTextField MR2 = new JTextField(Math.round(Double.parseDouble(tempTwo[9])) + &quot;&quot;);</span>
+<span class="nc" id="L157">		JTextField MS2 = new JTextField(Math.round(Double.parseDouble(tempTwo[13])) + &quot;&quot;);</span>
 
-    private void compareChamps(Item champ) {
-<span class="nc" id="L102">        champOne.setText(champ.getName());</span>
-<span class="nc" id="L103">        champTwo.setText(comparingTo.getName());</span>
+		// The follow is just setting the bounds and paramets for each of the fields and adding them to the panel
+		
+<span class="nc" id="L161">		champOne.setBounds(75, 50, 50, 20);</span>
+<span class="nc" id="L162">		contentPane.add(champOne);</span>
+<span class="nc" id="L163">		champTwo.setBounds(175, 50, 50, 20);</span>
+<span class="nc" id="L164">		contentPane.add(champTwo);</span>
 
-<span class="nc" id="L105">        JLabel HP = new JLabel(&quot;HP&quot;);</span>
-<span class="nc" id="L106">        JLabel AD = new JLabel(&quot;AD&quot;);</span>
-<span class="nc" id="L107">        JLabel AS = new JLabel(&quot;AS&quot;);</span>
-<span class="nc" id="L108">        JLabel AR = new JLabel(&quot;AR&quot;);</span>
-<span class="nc" id="L109">        JLabel MR = new JLabel(&quot;MR&quot;);</span>
-<span class="nc" id="L110">        JLabel MS = new JLabel(&quot;MS&quot;);</span>
+<span class="nc" id="L166">		HP1.setBounds(75, 70, 50, 20);</span>
+<span class="nc" id="L167">		contentPane.add(HP1);</span>
+<span class="nc" id="L168">		HP2.setBounds(175, 70, 50, 20);</span>
+<span class="nc" id="L169">		contentPane.add(HP2);</span>
+<span class="nc" id="L170">		HP.setBounds(20, 75, 30, 10);</span>
+<span class="nc" id="L171">		contentPane.add(HP);</span>
+<span class="nc" id="L172">		AD1.setBounds(75, 90, 50, 20);</span>
+<span class="nc" id="L173">		contentPane.add(AD1);</span>
+<span class="nc" id="L174">		AD2.setBounds(175, 90, 50, 20);</span>
+<span class="nc" id="L175">		contentPane.add(AD2);</span>
+<span class="nc" id="L176">		AD.setBounds(20, 90, 50, 20);</span>
+<span class="nc" id="L177">		contentPane.add(AD);</span>
+<span class="nc" id="L178">		AS1.setBounds(75, 110, 50, 20);</span>
+<span class="nc" id="L179">		contentPane.add(AS1);</span>
+<span class="nc" id="L180">		AS2.setBounds(175, 110, 50, 20);</span>
+<span class="nc" id="L181">		contentPane.add(AS2);</span>
+<span class="nc" id="L182">		AS.setBounds(20, 110, 50, 20);</span>
+<span class="nc" id="L183">		contentPane.add(AS);</span>
+<span class="nc" id="L184">		AR1.setBounds(75, 130, 50, 20);</span>
+<span class="nc" id="L185">		contentPane.add(AR1);</span>
+<span class="nc" id="L186">		AR2.setBounds(175, 130, 50, 20);</span>
+<span class="nc" id="L187">		contentPane.add(AR2);</span>
+<span class="nc" id="L188">		AR.setBounds(20, 130, 50, 20);</span>
+<span class="nc" id="L189">		contentPane.add(AR);</span>
+<span class="nc" id="L190">		MR1.setBounds(75, 150, 50, 20);</span>
+<span class="nc" id="L191">		contentPane.add(MR1);</span>
+<span class="nc" id="L192">		MR2.setBounds(175, 150, 50, 20);</span>
+<span class="nc" id="L193">		contentPane.add(MR2);</span>
+<span class="nc" id="L194">		MR.setBounds(20, 150, 50, 20);</span>
+<span class="nc" id="L195">		contentPane.add(MR);</span>
+<span class="nc" id="L196">		MS1.setBounds(75, 170, 50, 20);</span>
+<span class="nc" id="L197">		contentPane.add(MS1);</span>
+<span class="nc" id="L198">		MS2.setBounds(175, 170, 50, 20);</span>
+<span class="nc" id="L199">		contentPane.add(MS2);</span>
+<span class="nc" id="L200">		MS.setBounds(20, 170, 50, 20);</span>
+<span class="nc" id="L201">		contentPane.add(MS);</span>
 
-<span class="nc" id="L112">        String[] tempOne = champ.getStats();</span>
-<span class="nc" id="L113">        String[] tempTwo = champ.getStats();//comparingTo.getStats();</span>
-
-<span class="nc" id="L115">        JTextField HP1 = new JTextField(Math.round(Double.parseDouble(tempOne[2])) + &quot;&quot;);</span>
-<span class="nc" id="L116">        JTextField AD1 = new JTextField(Math.round(Double.parseDouble(tempOne[3])) + &quot;&quot;);</span>
-<span class="nc" id="L117">        JTextField AS1 = new JTextField(Math.round(Double.parseDouble(tempOne[5])) + &quot;&quot;);</span>
-<span class="nc" id="L118">        JTextField AR1 = new JTextField(Math.round(Double.parseDouble(tempOne[7])) + &quot;&quot;);</span>
-<span class="nc" id="L119">        JTextField MR1 = new JTextField(Math.round(Double.parseDouble(tempOne[9])) + &quot;&quot;);</span>
-<span class="nc" id="L120">        JTextField MS1 = new JTextField(Math.round(Double.parseDouble(tempOne[13])) + &quot;&quot;);</span>
-
-<span class="nc" id="L122">        JTextField HP2 = new JTextField(Math.round(Double.parseDouble(tempTwo[2])) + &quot;&quot;);</span>
-<span class="nc" id="L123">        JTextField AD2 = new JTextField(Math.round(Double.parseDouble(tempTwo[3])) + &quot;&quot;);</span>
-<span class="nc" id="L124">        JTextField AS2 = new JTextField(Math.round(Double.parseDouble(tempTwo[5])) + &quot;&quot;);</span>
-<span class="nc" id="L125">        JTextField AR2 = new JTextField(Math.round(Double.parseDouble(tempTwo[7])) + &quot;&quot;);</span>
-<span class="nc" id="L126">        JTextField MR2 = new JTextField(Math.round(Double.parseDouble(tempTwo[9])) + &quot;&quot;);</span>
-<span class="nc" id="L127">        JTextField MS2 = new JTextField(Math.round(Double.parseDouble(tempTwo[13])) + &quot;&quot;);</span>
-
-<span class="nc" id="L129">        champOne.setBounds(75, 50, 50, 20);</span>
-<span class="nc" id="L130">        contentPane.add(champOne);</span>
-<span class="nc" id="L131">        champTwo.setBounds(175, 50, 50, 20);</span>
-<span class="nc" id="L132">        contentPane.add(champTwo);</span>
-
-<span class="nc" id="L134">        HP1.setBounds(75, 70, 50, 20);</span>
-<span class="nc" id="L135">        contentPane.add(HP1);</span>
-<span class="nc" id="L136">        HP2.setBounds(175, 70, 50, 20);</span>
-<span class="nc" id="L137">        contentPane.add(HP2);</span>
-<span class="nc" id="L138">        HP.setBounds(20, 75, 30, 10);</span>
-<span class="nc" id="L139">        contentPane.add(HP);</span>
-<span class="nc" id="L140">        AD1.setBounds(75, 90, 50, 20);</span>
-<span class="nc" id="L141">        contentPane.add(AD1);</span>
-<span class="nc" id="L142">        AD2.setBounds(175, 90, 50, 20);</span>
-<span class="nc" id="L143">        contentPane.add(AD2);</span>
-<span class="nc" id="L144">        AD.setBounds(20, 90, 50, 20);</span>
-<span class="nc" id="L145">        contentPane.add(AD);</span>
-<span class="nc" id="L146">        AS1.setBounds(75, 110, 50, 20);</span>
-<span class="nc" id="L147">        contentPane.add(AS1);</span>
-<span class="nc" id="L148">        AS2.setBounds(175, 110, 50, 20);</span>
-<span class="nc" id="L149">        contentPane.add(AS2);</span>
-<span class="nc" id="L150">        AS.setBounds(20, 110, 50, 20);</span>
-<span class="nc" id="L151">        contentPane.add(AS);</span>
-<span class="nc" id="L152">        AR1.setBounds(75, 130, 50, 20);</span>
-<span class="nc" id="L153">        contentPane.add(AR1);</span>
-<span class="nc" id="L154">        AR2.setBounds(175, 130, 50, 20);</span>
-<span class="nc" id="L155">        contentPane.add(AR2);</span>
-<span class="nc" id="L156">        AR.setBounds(20, 130, 50, 20);</span>
-<span class="nc" id="L157">        contentPane.add(AR);</span>
-<span class="nc" id="L158">        MR1.setBounds(75, 150, 50, 20);</span>
-<span class="nc" id="L159">        contentPane.add(MR1);</span>
-<span class="nc" id="L160">        MR2.setBounds(175, 150, 50, 20);</span>
-<span class="nc" id="L161">        contentPane.add(MR2);</span>
-<span class="nc" id="L162">        MR.setBounds(20, 150, 50, 20);</span>
-<span class="nc" id="L163">        contentPane.add(MR);</span>
-<span class="nc" id="L164">        MS1.setBounds(75, 170, 50, 20);</span>
-<span class="nc" id="L165">        contentPane.add(MS1);</span>
-<span class="nc" id="L166">        MS2.setBounds(175, 170, 50, 20);</span>
-<span class="nc" id="L167">        contentPane.add(MS2);</span>
-<span class="nc" id="L168">        MS.setBounds(20, 170, 50, 20);</span>
-<span class="nc" id="L169">        contentPane.add(MS);</span>
-
-<span class="nc" id="L171">        contentPane.setVisible(false);</span>
-<span class="nc" id="L172">        contentPane.setVisible(true);</span>
-<span class="nc" id="L173">    }</span>
+		// Refreshing the frame
+		
+<span class="nc" id="L205">		contentPane.setVisible(false);</span>
+<span class="nc" id="L206">		contentPane.setVisible(true);</span>
+<span class="nc" id="L207">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.4.201312101107</span></div></body></html>

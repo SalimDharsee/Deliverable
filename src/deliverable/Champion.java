@@ -34,6 +34,7 @@ public class Champion {
         Range = -1;
     }
 
+    //sets the stats otherwise
     public Champion(String name, double HP, double HG, double AD, double ADL, double AS, double ASL, double AR, double ARL, double MR, double MRL, int MS, int Range) {
         this.name = name;
         this.HP = HP;
@@ -50,6 +51,7 @@ public class Champion {
         this.Range = Range;
     }
 
+    //returns an array of the stats
     public String[] getStats() {
         String returnArray[] = {name, getString(HP), getString(HG), getString(AD),
             getString(ADL), getString(AS), getString(ASL), getString(AR), getString(ARL),
@@ -58,31 +60,43 @@ public class Champion {
         return returnArray;
     }
 
+    //simple method to get a string from a double
     private String getString(double d) {
         return d + "";
     }
 
+    //simple method to get a string from an int
     private String getString(int i) {
         return i + "";
     }
     
+    //returns the file location of the champion's picture
     public String picLocation(){
         String temp = System.getProperty("user.dir") + File.separatorChar + "bin" + File.separatorChar + name + "Square.png";
         return temp;
     }
     
+    //returns the name of the champion
     public String getName(){
         return name;
     }
     
+    //returns the ad for the given level of a champion
+    //base ad + (ad per level * the level)
+    //level - 1 because base stats are at level one so the amount above that
+    //is one below the level
     public int getAD(int lvl){
     	String effectiveAD = (Math.round(AD + (ADL*(lvl-1))) + "");
     	return Integer.parseInt(effectiveAD);
     }
+    
+    //same as the getAD method, but for AR
     public int getAR(int lvl){
     	String effectiveAR = (Math.round(AR + (ARL*(lvl-1))) + "");
     	return Integer.parseInt(effectiveAR);
     }
+    
+    //same as the two preceding methods, but for MR
     public int getMR(int lvl){
     	String effectiveMR = (Math.round(MR + (MRL*(lvl-1))) + "");
     	return Integer.parseInt(effectiveMR);

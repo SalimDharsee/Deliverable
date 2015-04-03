@@ -56,9 +56,9 @@ public class SearchItem {
     //Returns the stored Item name to the user
     public Item getItem(String checkText) {
         
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (Item c : Items){</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">            if(c.getName().equals(checkText)){</span>
-<span class="nc" id="L61">                return c;</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        for (Item c : Items){</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            if(c.getName().equals(checkText)){</span>
+<span class="fc" id="L61">                return c;</span>
             }
         }
 <span class="nc" id="L64">        return null;</span>

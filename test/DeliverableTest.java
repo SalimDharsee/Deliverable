@@ -58,6 +58,7 @@ public class DeliverableTest {
     public void testItemPopup(){
         Item i = new Item();
         ItemCompare test = new ItemCompare(i);
+        SearchItem trial = new SearchItem();
         assertNotNull(test);
         
         //ensures items have the correct number of stats
@@ -69,6 +70,7 @@ public class DeliverableTest {
         assertNotNull(i.getMR());
         assertNotNull(i.getAR());
         assertNotNull(i.getName());
+        assertNotNull(trial.getItem("B.F. Sword"));
     }
     @Test
     public void testCalc(){
